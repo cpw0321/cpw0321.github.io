@@ -3,6 +3,7 @@
 ## 目录
 ### 基础知识
 + [note](/note)
++ [linux](/linux)
 + [vue3](/vue3)
 + [html](/html)
 + [docker](/docker)

@@ -18,3 +18,7 @@ docker rm $(docker ps -a -q)
 
 ## 2、安装服务
 + 安装mysql
+
+## 3、命令参数
++ -d 后台运行
++ -v 挂载卷
