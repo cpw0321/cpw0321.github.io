@@ -2,7 +2,6 @@
 
 ## 快捷键
 
-
 ```text
 vscode
 1、生成html模板
