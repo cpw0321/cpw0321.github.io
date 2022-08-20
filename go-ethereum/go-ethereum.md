@@ -2,7 +2,7 @@
 
 ## 一、源码的目录结构
 
-``` golang
+``` text
 |---accounts 以太坊账户管理
 |---bmt 二进制Merkle-Patricia Trie的实现
 |---build 主要是编译和构建的一些脚本和配置

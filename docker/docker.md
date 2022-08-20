@@ -1,6 +1,8 @@
 # docker知识
 
-## 1、常用命令
+## 一、基础
+
+### 1、常用命令
 
 + 删除命令  
 
@@ -16,7 +18,7 @@ docker rm $(docker ps -a -q)
 
 ```
 
-## 2、安装
+### 2、安装
 + docker 在ubuntu下安装
 ```text
 1、添加Docker官方GPG key
@@ -51,6 +53,6 @@ sudo systemctl daemon-reload
 sudo systemctl restart docker
 ```
 
-## 3、命令参数
+### 3、命令参数
 + -d 后台运行
 + -v 挂载卷

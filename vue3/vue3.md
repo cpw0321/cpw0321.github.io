@@ -1,6 +1,7 @@
 # vue3教程
 
-## 安装
+## 一、安装
+
 ```text
 1、安装淘宝镜像
 npm install -g cnpm --registry=https://registry.npm.taobao.org
@@ -19,10 +20,9 @@ npm install axios
 ```
 ![img.png](images/img.png)
 
-## 语法
+## 二、语法
 ```text
 1、vbase快捷插件
 Vue VSCode Snippets
 ```
-
 

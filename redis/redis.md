@@ -1,6 +1,6 @@
 # redis知识
 
-## 一 基础
+## 一、 基础
 ### 1.1. 基本数据类型
 string、hash、list、set、zset
 ![redis01.png](images/redis01.png)
