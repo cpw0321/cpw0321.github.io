@@ -27,7 +27,25 @@
 
 ### 3、安装Tomcat
 
+### 4、maven
 
+maven是一个工具用来导入jar包
+
+### 5、包
+
+jar
+
+war: web应用
+
+## 三、spring
+
+### 1、简介
+
+spring是一个轻量级的框架（容器）	
+
+​		控制反转（IOC）
+
+​		面向切面编程（AOP）
 
 
 
