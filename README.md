@@ -9,8 +9,13 @@
 + [docker](/docker)
 + [k8s](/k8s)
 
+### 语言
++ [go](/go)
++ [java](/java)
+
 ### 中间件
 + [elasticsearch](/elasticsearch)
++ [redis](/redis)
 
 ### 开源项目
 + [go-ethereum](/go-ethereum)

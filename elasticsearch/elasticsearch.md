@@ -1,6 +1,9 @@
-### es基础知识
+# es基础知识
 
-### Docker安装ES、Kibana、head、IK
+## 一、安装
+
+Docker安装ES、Kibana、head、IK
+
 参考：
 https://www.cnblogs.com/qq1445496485/p/16472862.html   
 1、拉取es镜像
@@ -110,33 +113,32 @@ docker run --name kibana --restart=always \
 i18n.locale: "zh-CN"
 ```
 
-### 基础知识
+## 二、基础知识
+
+### 1、概念
+
 参考：https://www.kuangstudy.com/bbs/1354069127022583809  
 es--->mysql
+
 * 索引--->数据库  
 * 类型--->表，6.x在使用, 7.x淡化，8.x废弃  
 * 类型--->数据库类型，varchar  
 * 行--->文档
 * 倒序索引
 
-### 插件
-* head 图形化界面(Kibana更好用，elk)
-* ik分词器
-    + ik_smart 最少切分
-    + ik_max_word 最小颗粒度划分
-    + ik分词器增加自己的字典,即自己的单词  
-        在plugins-ik-config-*.dc
+### 2、类型
 
-### 类型
 ![img.png](images/img.png)
 
-### 操作
+### 3、操作
+
 增删查改
 
 + put 修改， 更推荐使用 post _update区别，只更新某个字段， put某个字段不写会为空
 + get 查询  /test/user/_search?q=name:张三  
 
-### 条件查询
+### 4、条件查询
+
 + match匹配---> ==
 + source过滤字段---> select name
 + sort排序---> order by
@@ -149,3 +151,11 @@ es--->mysql
 ```text
 keyword类型的不会被分词器解析
 ```
+
+## 三、插件
+* head 图形化界面(Kibana更好用，elk)
+* ik分词器
+    + ik_smart 最少切分
+    + ik_max_word 最小颗粒度划分
+    + ik分词器增加自己的字典,即自己的单词  
+        在plugins-ik-config-*.dc
