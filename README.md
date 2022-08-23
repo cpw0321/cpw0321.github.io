@@ -16,6 +16,7 @@
 ### 中间件
 + [elasticsearch](/elasticsearch)
 + [redis](/redis)
++ [mysql](/mysql)
 
 ### 开源项目
 + [go-ethereum](/go-ethereum)
