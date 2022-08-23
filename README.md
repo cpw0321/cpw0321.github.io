@@ -17,6 +17,7 @@
 + [elasticsearch](/elasticsearch)
 + [redis](/redis)
 + [mysql](/mysql)
++ [rabbitmq](/rabbitmq)
 
 ### 开源项目
 + [go-ethereum](/go-ethereum)
