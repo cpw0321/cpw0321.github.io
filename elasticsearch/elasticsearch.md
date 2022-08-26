@@ -35,16 +35,16 @@ http.cors.allow-origin: "*"
 ```
 3、启动
 ```shell
-docker run --name elasticsearch --restart=always -p 9200:9200 -p 9300:9300 \
+docker run --name elasticsearch -p 9200:9200 -p 9300:9300 \
 -e "discovery.type=single-node" \
 -e ES_JAVA_OPTS="-Xms64m -Xmx512m" \
 -e TZ="Asia/Shanghai" \
 -e LANG="en_US.UTF-8" \
 -e ELASTIC_PASSWORD="123456" \
--v /elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml \
--v /elasticsearch/data:/usr/share/elasticsearch/data \
--v /elasticsearch/plugins:/usr/share/elasticsearch/plugins \
--d elasticsearch:7.4.2
+-v /Users/zhigui/code/docker/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml \
+-v /Users/zhigui/code/docker/elasticsearch/data:/usr/share/elasticsearch/data \
+-v /Users/zhigui/code/docker/elasticsearch/plugins:/usr/share/elasticsearch/plugins \
+-d elasticsearch:7.12.0
 ```
 4、安装head
 ```shell
@@ -100,12 +100,12 @@ i18n.locale: zh-CN # 中文
 运行
 ```shell
 # 没有编写kibana.yml文件的启动方式
-docker run --name kibana --restart=always -e ELASTICSEARCH_HOSTS="http://172.17.0.2:9200" -p 5601:5601 -d kibana:7.4.2
+docker run --name kibana --restart=always -e ELASTICSEARCH_HOSTS="http://172.17.0.2:9200" -p 5601:5601 -d kibana:7.12.0
  
 # 编写了kibana.yml文件的启动方式
 docker run --name kibana --restart=always \
 -v /elasticsearch/kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml \
--p 5601:5601 -d kibana:7.4.2
+-p 5601:5601 -d kibana:7.12.0
 ```
 汉化
 ```text

@@ -2,7 +2,7 @@
 
 ## 目录
 ### 基础知识
-+ [note](/note)
++ [note](/note/node.md)
 + [linux](/linux)
 + [vue3](/vue3)
 + [html](/html)

@@ -14,3 +14,12 @@ docker run -d  --name mysql \
 -e MYSQL_ROOT_PASSWORD=123456 \
 mysql:5.7
 ```
+
+```text
+docker run -d  --name mysql \
+-v ~/code/docker/mysql8:/var/lib/mysql \
+-p 3306:3306 \
+-e TZ=Asia/Shanghai \
+-e MYSQL_ROOT_PASSWORD=123456 \
+mysql:8.0
+```

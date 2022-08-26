@@ -23,6 +23,7 @@ node
 * Pod：是k8s集群里面最小的单位。每个pod里边可以运行一个或多个container（容器），如果一个pod中有两个container，那么container的USR（用户）、MNT（挂载点）、PID（进程号）是相互隔离的，UTS（主机名和域名）、IPC（消息队列）、NET（网络栈）是相互共享的。
 
 ## 二、安装教程
+### 2.1.linux上安装k8s
 参考：https://www.cnblogs.com/xuweiweiwoaini/p/13884112.html  
 方式一：通过kubeadm
 ```text
@@ -40,6 +41,9 @@ kubeadm join
 |k8s-master	|192.168.217.100	|kube-api-server、kube-controller-manager、kube-scheduler、docker、etcd|
 |k8s-node1	|192.168.217.101	|kubelet、kube-proxy、docker、etcd|
 |k8s-node2	|192.168.217.102	|kubelet、kube-proxy、docker、etcd|
+
+### 2.2.mac上安装k8s
+参考：https://www.jianshu.com/p/a6abdc6f76e1
 
 
 ## 三、常用命令
