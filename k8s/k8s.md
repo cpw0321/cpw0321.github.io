@@ -51,5 +51,12 @@ kubeadm join
 kubectl
 
 ```shell script
+# 查看nodes
+kubectl get nodes
 
+# 查看命名空间
+kubectl get ns
+
+# 查看pod
+kubectl get pods -n kube-system
 ```
