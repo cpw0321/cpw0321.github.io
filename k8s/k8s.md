@@ -59,4 +59,13 @@ kubectl get ns
 
 # 查看pod
 kubectl get pods -n kube-system
+
+# 查看pod更多信息
+kubectl get pod etcd-docker-desktop -n kube-system -o wide
+
+# 查看pod信息以yaml格式
+kubectl get pod etcd-docker-desktop -n kube-system -o yaml
+
+# 创建service和rc
+kubectl create -f my-service.yaml -f my-rc.yaml
 ```
