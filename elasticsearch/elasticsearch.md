@@ -158,6 +158,12 @@ es--->mysql
 keyword类型的不会被分词器解析
 ```
 
+### 5、术语
++ number_of_shards  
+是指索引要做多少个分片，只能在创建索引时指定，后期无法修改。
++ number_of_replicas  
+是指每个分片有多少个副本，后期可以动态修改
+
 ## 三、插件
 * head 图形化界面(Kibana更好用，elk)
 * ik分词器
