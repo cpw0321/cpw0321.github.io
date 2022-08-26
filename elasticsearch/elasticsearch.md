@@ -9,7 +9,7 @@ https://www.cnblogs.com/qq1445496485/p/16472862.html
 1、拉取es镜像
 ```shell
 # 拉取镜像
-docker pull elasticsearch:7.4.2
+docker pull elasticsearch:7.12.0
 
 # 创建文件
 mkdir -p /elasticsearch/data
