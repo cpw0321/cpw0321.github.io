@@ -163,4 +163,4 @@ keyword类型的不会被分词器解析
     + ik_smart 最少切分
     + ik_max_word 最小颗粒度划分
     + ik分词器增加自己的字典,即自己的单词  
-        在plugins-ik-config-*.dc
+        在plugins-ik-config-*
