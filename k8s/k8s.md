@@ -68,4 +68,19 @@ kubectl get pod etcd-docker-desktop -n kube-system -o yaml
 
 # 创建service和rc
 kubectl create -f my-service.yaml -f my-rc.yaml
+
+# 创建命名空间
+kubectl create ns test
+
+# 创建pod
+kubectl create -f nginx.yaml 
+# 修改pod
+kubectl apply -f nginx.yaml 
 ```
+
+## 四、基础组件
+### 4.1 pod
++ pause  
+pause进程是pod中所有容器的父进程,主要是负责僵尸进程的回收管理
+通过pause容器可以使同一个pod里面的多个容器共享存储、网络、pid、
+ipc等
