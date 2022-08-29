@@ -56,3 +56,15 @@ sudo systemctl restart docker
 ### 3、命令参数
 + -d 后台运行
 + -v 挂载卷
+
+### 4、镜像制作
+dockerfile
+
+选择基础镜像,可以在hub.docker.com官方去搜索  
++ 使用小包，推荐的：alpine, busybox（scratch是一个空的Docker镜像）  
+```text
+FROM golang:1.18
+```
+
++ 多阶段构建，编译和创建镜像分开
+

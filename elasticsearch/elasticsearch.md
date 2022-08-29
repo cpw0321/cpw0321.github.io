@@ -155,6 +155,73 @@ es--->mysql
 + filter过滤
 
 ```text
+# 新增
+POST test/book/1
+{
+  "name":"java入门",
+  "price":20
+}
+```
+
+```text
+# _source过滤字段，相当于select name
+GET test/book/1?_source=name,price
+```
+
+```text
+# _update更新
+POST test/book/1/_update
+{
+  "doc":{
+    "price":19
+  }
+}
+```
+
+```text
+# _search查询
+# query查询条件，bool组合查询，term不分词
+示例1:
+POST test/book/_search
+{
+  "query":{
+    "bool": {
+      "must": [
+        {
+          "match_all": {
+          }
+        }
+      ],
+      "filter": [
+        {
+          "term": {
+            "price": "22"
+          }
+        }
+      ]
+    }
+  }
+}
+
+实例2：
+POST test/book/_search
+{
+  "query":{
+    "constant_score": {
+      "filter": {
+          "term": {
+            "price": "22"
+          }
+        },
+      "boost": 1.2
+    }
+  }
+}
+
+```
+
+
+```text
 keyword类型的不会被分词器解析
 ```
 
@@ -171,3 +238,4 @@ keyword类型的不会被分词器解析
     + ik_max_word 最小颗粒度划分
     + ik分词器增加自己的字典,即自己的单词  
         在plugins-ik-config-*
+    
