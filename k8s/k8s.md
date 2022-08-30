@@ -76,6 +76,7 @@ kubectl create ns test
 kubectl create -f nginx.yaml 
 # 修改pod
 kubectl apply -f nginx.yaml 
+
 ```
 
 ## 四、基础组件
@@ -84,3 +85,39 @@ kubectl apply -f nginx.yaml
 pause进程是pod中所有容器的父进程,主要是负责僵尸进程的回收管理
 通过pause容器可以使同一个pod里面的多个容器共享存储、网络、pid、
 ipc等
+
+### 4.2 组件
++ rc与rs  
+  控制副本数量的，一般不使用
++ deployment  
+  无状态：可以随便重启，也可以管理rc
+
+```text
+# 手动创建deployment
+kubectl create deployment nginx --image=nginx:1.15.2
+kubectl get deployment
+kubectl delete deployment nginx
+# 查看滚动状态
+kubectl rollout status deploy nginx
+# 查看版本记录用于回滚时使用
+kubectl rollout history deploy nginx
+# 回滚到上一个版本
+kubectl rollout undo deploy nginx
+# 查看某个版本的具体信息
+kubectl rollout history deploy nginx --revision=5
+# 回滚到指定版本
+kubectl rollout undo deploy nginx --to-revision=5
+# 扩容
+kubectl scale --replicas=3 deploy nginx
+# 暂停，用于多次修改生效
+kubectl rollout pause deploy nginx
+# 修改deploy参数, --record用作历史记录
+kubectl set image deploy nginx=nginx:1.15.3 --record
+```
+
++ statefuiset  
+  有状态：部署redis、mysql  
++ daemonset  
+  每个节点上都启动一个组件，比如可以管理网络
+
+
