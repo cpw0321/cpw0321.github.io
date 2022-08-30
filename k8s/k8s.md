@@ -1,5 +1,11 @@
 # k8s知识点
 
+---
+
+参考：https://zhuanlan.zhihu.com/p/365759073  
+
+---
+
 ## 一、概念
 ### 1、介绍  
 
@@ -86,6 +92,9 @@ pause进程是pod中所有容器的父进程,主要是负责僵尸进程的回�
 ipc等
 
 ### 4.2 组件
+pod可以简写为po  
+deployment可以简写为deploy  
+
 + rc与rs  
   控制副本数量的，一般不使用
 + deployment  
@@ -114,9 +123,70 @@ kubectl rollout pause deploy nginx
 kubectl set image deploy nginx=nginx:1.15.3 --record
 ```
 
-+ statefuiset  
++ statefulset  
   有状态：部署redis、mysql  
 + daemonset  
   每个节点上都启动一个组件，比如可以管理网络
+
++ label
+  对k8s中各种资源进行分类、分组
+```shell
+# 给node创建label
+kubectl label node k8s-node2 region=subnet2
+# 过滤label
+kubectl get node -l region=subnet2
+# 查看pod的label
+kubectl get po --show-labels
+# 查看pod的所有label
+kubectl get po -A --show-labels
+# 过滤label
+kubectl get po -A -l app=busybox
+# 为pod新建label
+kubectl label po busybox app=busybox -n kube-system
+# 为pod删除label， 加-
+kubectl label po busybox app- -n kube-system
+# 修改label, --overwrite
+kubectl label po busybox app=busybox -n kube-system --overwrite
+
+
+```
++ selector
+  通过一个过滤语法查找到对应标签的资源
+
++ service
+  服务间的通讯，即：东西通讯，通过svc
+  用户通过外网访问，即：南北通讯， 通过ingress
+
+  创建svc后同时也会创建出一个endpoint(ep)，该ep会记录pod的ip
+  svc的yaml文件中会通过selector去选择响应的pod
+```shell
+# 查看ep
+kubectl get ep nginx-svc
+```
+1、svc使用示例  
+```text
+- 通过svc反向代理外部服务
+  yaml文件中不指定selector,自己创建ep,ep写要代理的服务ip
+
+```
+
+2、svc类型
+```text
+- clusterIP  
+  在集群内部使用，默认
+- externalName  
+  通过返回定义的CNAME别名
+- nodePort  
+  在所有安装了kube-proxy的节点打开一个端口，此端口可以
+  代理至后端pod,然后集群外部可以使用节点的ip地址和nodePort的
+  端口号访问到集群的pod服务，端口号范围30000-32767
+- loadBalancer  
+  通过云服务商公布服务
+```
+
++ configMap
++ secret
++ pv
++ pvc
 
 
