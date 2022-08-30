@@ -50,7 +50,7 @@ kubeadm join
 
 kubectl
 
-```shell script
+```shell
 # 查看nodes
 kubectl get nodes
 
@@ -75,8 +75,7 @@ kubectl create ns test
 # 创建pod
 kubectl create -f nginx.yaml 
 # 修改pod
-kubectl apply -f nginx.yaml 
-
+kubectl apply -f nginx.yaml
 ```
 
 ## 四、基础组件
@@ -92,7 +91,7 @@ ipc等
 + deployment  
   无状态：可以随便重启，也可以管理rc
 
-```text
+```shell
 # 手动创建deployment
 kubectl create deployment nginx --image=nginx:1.15.2
 kubectl get deployment
