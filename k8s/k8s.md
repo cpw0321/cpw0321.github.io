@@ -166,13 +166,13 @@ kubectl label po busybox app=busybox -n kube-system --overwrite
 kubectl get ep nginx-svc
 ```
 
-1、svc使用示例  
+svc使用示例
 ```text
 - 通过svc反向代理外部服务
-  yaml文件中不指定selector,自己创建ep,ep写要代理的服务ip
+yaml文件中不指定selector,自己创建ep,ep写要代理的服务ip
 ```
 
-2、svc类型
+svc类型
 ```text
 - clusterIP  
   在集群内部使用，默认
@@ -202,5 +202,14 @@ kubectl get ep nginx-svc
 + pvc  
   pvc绑定pv时需注意storageClassName与accessmodes必须一致  
 
++ cronJob
+  * * * * * 分时日月周
 
++ taint 污点
+  tolerations 容忍
 
++ initContainer
+  容器初始化时进行的一些操作
+
++ Affinity 亲和力
+  

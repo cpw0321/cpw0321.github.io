@@ -203,7 +203,7 @@ POST test/book/_search
   }
 }
 
-实例2：
+示例2：
 POST test/book/_search
 {
   "query":{
@@ -220,6 +220,20 @@ POST test/book/_search
 
 ```
 
+```text
+# 统计
+GET books/_count
+```
+
+```text
+# 清空表数据
+POST books/_delete_by_query 
+{
+  "query":{
+    "match_all": {}
+  }
+}
+```
 
 ```text
 keyword类型的不会被分词器解析
