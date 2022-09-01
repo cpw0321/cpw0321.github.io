@@ -8,6 +8,10 @@
 + [html](/html/html.md)
 + [docker](/docker/docker.md)
 + [k8s](/k8s/k8s.md)
++ [CI/CD](/cicd/cicd.md)
++ [网络](/网络/网络.md)
++ [分布式](/分布式/分布式.md)
++ [设计模式](/设计模式/设计模式.md)
 
 ### 语言
 + [go](/go/go.md)
@@ -21,3 +25,6 @@
 
 ### 开源项目
 + [go-ethereum](/go-ethereum/go-ethereum.md)
+
+### 个人项目
++ [mammoth](/mammoth/mammoth.md)

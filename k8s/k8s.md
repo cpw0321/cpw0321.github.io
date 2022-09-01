@@ -186,7 +186,19 @@ kubectl get ep nginx-svc
 
 + configMap
 + secret
+  imagepullsecret 拉取私有镜像时进行配置用户名和密码
++ volumes  
+  emptyDir 参考：https://kubernetes.io/docs/concepts/storage/volumes/
+  hostPath
+  nfs
 + pv
+  状态：
+    available：空闲的pv,没有被任何pvc绑定
+    bound: 已经被pvc绑定
+    released: pvc被删除，但是资源未被重新使用
+    failed: 自动回收失败
 + pvc
+  pvc绑定pv时需注意storageClassName与accessmodes必须一致  
+
 
 

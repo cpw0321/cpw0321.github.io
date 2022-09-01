@@ -23,3 +23,7 @@ docker run -d  --name mysql \
 -e MYSQL_ROOT_PASSWORD=123456 \
 mysql:8.0
 ```
+
+## 二、原理
+### 2.1 索引
+### 2.2 B+树
