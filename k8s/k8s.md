@@ -129,7 +129,8 @@ kubectl set image deploy nginx=nginx:1.15.3 --record
   每个节点上都启动一个组件，比如可以管理网络
 
 + label
-  对k8s中各种资源进行分类、分组
+  对k8s中各种资源进行分类、分组  
+
 ```shell
 # 给node创建label
 kubectl label node k8s-node2 region=subnet2
@@ -148,8 +149,8 @@ kubectl label po busybox app- -n kube-system
 # 修改label, --overwrite
 kubectl label po busybox app=busybox -n kube-system --overwrite
 
-
 ```
+
 + selector
   通过一个过滤语法查找到对应标签的资源
 
@@ -159,15 +160,16 @@ kubectl label po busybox app=busybox -n kube-system --overwrite
 
   创建svc后同时也会创建出一个endpoint(ep)，该ep会记录pod的ip
   svc的yaml文件中会通过selector去选择响应的pod
+
 ```shell
 # 查看ep
 kubectl get ep nginx-svc
 ```
+
 1、svc使用示例  
 ```text
 - 通过svc反向代理外部服务
   yaml文件中不指定selector,自己创建ep,ep写要代理的服务ip
-
 ```
 
 2、svc类型
@@ -188,16 +190,16 @@ kubectl get ep nginx-svc
 + secret
   imagepullsecret 拉取私有镜像时进行配置用户名和密码
 + volumes  
-  emptyDir 参考：https://kubernetes.io/docs/concepts/storage/volumes/
-  hostPath
-  nfs
-+ pv
-  状态：
-    available：空闲的pv,没有被任何pvc绑定
-    bound: 已经被pvc绑定
-    released: pvc被删除，但是资源未被重新使用
-    failed: 自动回收失败
-+ pvc
+  - emptyDir 参考：https://kubernetes.io/docs/concepts/storage/volumes/
+  - hostPath
+  - nfs
++ pv  
+  状态：   
+    - available：空闲的pv,没有被任何pvc绑定
+    - bound: 已经被pvc绑定
+    - released: pvc被删除，但是资源未被重新使用
+    - failed: 自动回收失败
++ pvc  
   pvc绑定pv时需注意storageClassName与accessmodes必须一致  
 
 

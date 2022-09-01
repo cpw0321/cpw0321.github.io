@@ -25,3 +25,4 @@ git add remote
 ```text
 https://用户名username:token值@github.com/demo.git
 ```
+git remote set-url origin xxx.com/demo.git
