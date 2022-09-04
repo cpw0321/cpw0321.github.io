@@ -69,11 +69,15 @@ runtime/iface.go   func convT2E 与func convT2I
 
 26种数据类型
 ![img.png](images/img05.png)
+
 ![img.png](images/img06.png)
 
 ### 1.6. GPM调度器
 #### 1.6.1 csp通讯顺序进程
 将两个并发执行的实体通过通道channel连接起来，所有的消息都通过channel传输
+
+#### 1.6.2 GPM
+![img.png](images/img07.png)
 
 ### 1.7 defer执行顺序
 + 1.return之后执行defer。
@@ -84,9 +88,51 @@ runtime/iface.go   func convT2E 与func convT2I
 
 参考： https://blog.csdn.net/qq_15115793/article/details/108074042
 
+### 1.8 Golang中汉字处理
+每个中文字，占3个byte
+```text
+str1 := "Hello,世界"  
+fmt.Println(len(str1)) // 打印结果：12
+```
+
+### 1.9 sync.one原理
+https://zhuanlan.zhihu.com/p/261988561
+
+实现原理：
+type Once struct { 
+    done uint32 //标志位
+    m Mutex //保证原子操作
+}
+通过标志位来判断是否执行过，未执行就加锁执行函数调用，并将标志位置为1
+
+自己如何实现：
+通过channel来实现
+//构造一个有缓冲的通道，防止deadlock错误
+ ch := make(chan int,1)
+//在channel发送一个数字1作为标志位
+ ch <- 1
+
+### 1.10 map底层原理
+https://blog.csdn.net/luolianxi/article/details/105371079
+map是由数组+链表实现的HashTable
+
+![img.png](images/img08.png)
+
+![img.png](images/img09.png)
+
+### 1.11 slice底层原理及其扩容
+扩容容量的选择遵循以下规则：
+如果原Slice容量小于1024，则新Slice容量将扩大为原来的2倍
+如果原Slice容量大于等于1024，则新Slice容量将扩大为原来的1.25倍
+使用append()向Slice添加一个元素的实现步骤如下：
+假如Slice容量够用，则将新元素追加进去，Slice.len++，返回原Slice
+原Slice容量不够，则将Slice先扩容，扩容后得到新Slice;将新元素追加进新Slice，Slice.len++，返回新的Slice。
+
+
+
 ---
-## 二、golang规范
-### 2.1、命名规范
+## golang规范
+### 1、命名规范
 + 包命名：package  
 保持package的名字和目录保持一致，尽量采取有意义的包名，简短，有意义，尽量和标准库不要冲突。包名应该为小写单词，不要使用下划线或者混合大小写。
 + 文件命名  
