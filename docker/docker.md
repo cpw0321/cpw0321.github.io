@@ -68,3 +68,30 @@ FROM golang:1.18
 
 + 多阶段构建，编译和创建镜像分开
 
+
+---
+## 问答
+### 1、docker 中 run 和 start 的区别是什么  
++ docker run 相当于执行了两步操作：将镜像放入容器中（docker create）,然后将容器启动，使之变成运行时容器（docker start）  
++ docker start 的作用是，重新启动已存在的镜像  
+
+### 2、add和copy区别  
++ add 支持通过URL从远程服务器读取资源并复制到镜像中, ADD指令更擅长读取本地tar文件并解压缩
++ copy 只能从执行docker build所在的主机上读取资源并复制到镜像中
+
+### 3、run、cmd和entrypoint
++ run 只在docker build时执行，一般用于下载安装包。
++ cmd dockerfile有多条CMD指令时，只有最后一条命令生效；
+  "docker run"指定的参数能够覆盖CMD指令的参数；
++ entrypoint dockerfile有多条ENTRYPOINT指令时，只有最后一条命令生效；
+  "docker run"指定的参数无法覆盖ENTRYPOINT指令的参数；
+
+### 4、docker和虚拟机区别
+```text
+虚拟机：虚拟机是通过Hypervisor(虚拟机管理系统，常见的有VMWare workstation、VirtualBox)，虚拟出网卡、cpu、内存等虚拟硬件，再在其上建立虚拟机，每个虚拟机是个独立的操作系统，拥有自己的系统内核。
+容器：容器是利用namespace将文件系统、进程、网络、设备等资源进行隔离，利用cgroup对权限、cpu资源进行限制，最终让容器之间互不影响，容器无法影响宿主机。
+```
++ docker属于进程之间的隔离，虚拟机可实现系统级别隔离
+
+
+---

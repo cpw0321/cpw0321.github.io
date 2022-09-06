@@ -51,6 +51,8 @@ kubeadm join
 ### 2.2.mac上安装k8s
 参考：https://www.jianshu.com/p/a6abdc6f76e1
 
+### 2.3.安装minikube
+https://minikube.sigs.k8s.io/docs/start/
 
 ## 三、常用命令
 
@@ -203,7 +205,10 @@ svc类型
   pvc绑定pv时需注意storageClassName与accessmodes必须一致  
 
 + cronJob
-  * * * * * 分时日月周
+```text
+* * * * * 分时日月周
+```
+  
 
 + taint 污点
   tolerations 容忍
@@ -212,4 +217,13 @@ svc类型
   容器初始化时进行的一些操作
 
 + Affinity 亲和力
-  
+
+
+
+
+---
+## 问答
+### 1、
+
+
+---
