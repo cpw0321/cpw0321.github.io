@@ -41,12 +41,7 @@
 
 
 ### 1.4 问题
-#### 1.4.1 判断chan是否关闭
-
-```text
-b, ok := <-ch
-写已经关闭的chan会panic
-```
+#### 1.4.1 
 
 #### 1.4.2. 地址空间存储
 ![img.png](images/img02.png)
@@ -73,7 +68,7 @@ runtime/iface.go   func convT2E 与func convT2I
 ![img.png](images/img06.png)
 
 ### 1.6. GPM调度器
-#### 1.6.1 csp通讯顺序进程
+#### 1.6.1 csp通讯顺序进程（通讯来共享内存）
 将两个并发执行的实体通过通道channel连接起来，所有的消息都通过channel传输
 
 #### 1.6.2 GPM
@@ -129,6 +124,64 @@ map是由数组+链表实现的HashTable
 原Slice容量不够，则将Slice先扩容，扩容后得到新Slice;将新元素追加进新Slice，Slice.len++，返回新的Slice。
 
 
+
+---
+## 问答
+### 1、channel
+#### 1.1. 判断chan是否关闭
+
+```text
+b, ok := <-ch
+如果 channel 关闭，ok 值为 false
+写已经关闭的chan会panic
+```
+#### 1.2. 如何优雅的关闭channel
+> 关闭一个 closed channel 会导致 panic
+> 向一个 closed channel 发送数据会导致 panic
+
++ 单生产者，单消费者
++ 单生产者，多消费者  
+    前两个直接让生产者关闭channel即可
++ 多生产者，单消费者
++ 多生产者，多消费者  
+    - 生产者主动退出，在另外一个goroutine中关闭，可利用sync.WaitGroup或额外channel
+    - 生产者不主动退出，让消费者发送信号让生产者停止发送数据，channel未被任何goroutine使用，gc会回收
+    - 生产和消费都不主动退出，让消费者监听一个退出信息，变成消费者主动退出情况
+
+实现方法可以参考：
+https://blog.csdn.net/studyhard232/article/details/88996434
+
+#### 1.3. channel内存泄露
+> 对于一个channel来说，如果没有任何goroutine引用，gc会对其进行回收，不会引起内存泄露。
+
+> 而当goroutine处于接收或发送阻塞状态，channel处于空或满状态时，一直得不到改变，gc则无法回收这类一直处于等待队列中的goroutine，引起内存泄露。
+
+引起内存泄露的几种情况：
++ 发送端channel满了，没有接收端
++ 接收端channel为空，没有发送端
++ channel未初始化
+
+参考：https://blog.csdn.net/firetreesf/article/details/125188759
+
+#### 1.4. channel底层实现原理
+循环列表+互斥锁
+
+参考：
+https://blog.csdn.net/qq_39382769/article/details/122335732  
+
+### 2. context
+#### 2.1. context.Value 查找的过程是什么
+递归查找，类似一个树
+
+
+### 3. gc
+#### 3.1. stw 的时机
+
+
+
+
+---
+    
 
 ---
 ## golang规范

@@ -1,7 +1,10 @@
 # CI/CD
 
 ## 一、工具
-### 1.1 Zadig
+### 1.1 gitlab安装
+参考：https://www.cnblogs.com/linhaifeng/articles/16480242.html  
+
+### 1.2 Zadig
 面向开发者设计的开源、高可用CI/CD
 
 
