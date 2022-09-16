@@ -107,13 +107,7 @@ type Once struct {
 //在channel发送一个数字1作为标志位
  ch <- 1
 
-### 1.10 map底层原理
-https://blog.csdn.net/luolianxi/article/details/105371079
-map是由数组+链表实现的HashTable
-
-![img.png](images/img08.png)
-
-![img.png](images/img09.png)
+### 1.10 
 
 ### 1.11 slice底层原理及其扩容
 扩容容量的选择遵循以下规则：
@@ -177,6 +171,65 @@ https://blog.csdn.net/qq_39382769/article/details/122335732
 ### 3. gc
 #### 3.1. stw 的时机
 
+### 4. map
+#### 4.1 map是否线程安全
+不安全
+```go
+func TestName1(t *testing.T) {
+	m := make(map[int]int, 10)
+	for i := 1; i <= 10; i++ {
+		m[i] = i
+	}
+
+	for k, v := range m {
+		go func() {
+			fmt.Println("k ->", k, "v ->", v)
+		}()
+	}
+	time.Sleep(2 * time.Second)
+}
+// 打印全部是9
+
+func TestName2(t *testing.T){
+    m := make(map[int]int, 10)
+    for i := 1; i<= 10; i++ {
+        m[i] = i
+    }
+    
+    for k, v := range(m) {
+        go func(k, v int) {
+            fmt.Println("k ->", k, "v ->", v)
+        }(k,v)
+    }
+    time.Sleep(5 * time.Second)
+}
+
+func TestName3(t *testing.T) {
+	var m sync.Map
+	for i := 1; i <= 10; i++ {
+		m.Store(i, i)
+	}
+
+	f := func(k, v interface{}) bool {
+		go func() {
+			fmt.Println("k ->", k, "v ->", v)
+		}()
+		return true
+	}
+	m.Range(f)
+
+	time.Sleep(2 * time.Second)
+}
+```
+
+#### 4.2 map底层原理
+
+https://blog.csdn.net/luolianxi/article/details/105371079
+map是由数组+链表实现的HashTable
+
+![img.png](images/img08.png)
+
+![img.png](images/img09.png)
 
 
 
