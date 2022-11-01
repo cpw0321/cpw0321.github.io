@@ -41,9 +41,9 @@ docker run --name elasticsearch -p 9200:9200 -p 9300:9300 \
 -e TZ="Asia/Shanghai" \
 -e LANG="en_US.UTF-8" \
 -e ELASTIC_PASSWORD="123456" \
--v /Users/code/docker/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml \
--v /Users/code/docker/elasticsearch/data:/usr/share/elasticsearch/data \
--v /Users/code/docker/elasticsearch/plugins:/usr/share/elasticsearch/plugins \
+-v ~/code/docker/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml \
+-v ~/code/docker/elasticsearch/data:/usr/share/elasticsearch/data \
+-v ~/code/docker/elasticsearch/plugins:/usr/share/elasticsearch/plugins \
 -d elasticsearch:7.12.0
 ```
 4、安装head

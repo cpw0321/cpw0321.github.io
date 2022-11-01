@@ -2,7 +2,7 @@
 
 ## 一、安装
 
-### 1.1. docker运行
+## 1.1. docker运行
 
 ```text
 docker run -d  --name mysql \

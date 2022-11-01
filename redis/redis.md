@@ -1,5 +1,11 @@
 # redis知识
 
+## 安装
+### 1.docker
+```shell
+docker run -d --name redis6 -p 6379:6379 redis:6.0
+```
+
 ## 一、 基础
 ### 1.1. 基本数据类型
 string、hash、list、set、zset
