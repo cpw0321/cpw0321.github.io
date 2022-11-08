@@ -234,7 +234,19 @@ map是由数组+链表实现的HashTable
 
 
 ---
-    
+
+## 问题
+### 1. mac下编译错误
+```text
+fork/exec: exec format error
+```
+解决：
+```shell
+go env -w CGO_ENABLED=1
+go env -w GOOS=darwin
+go env -w GOARCH=amd64
+```
+
 
 ---
 ## golang规范
