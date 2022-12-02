@@ -38,3 +38,93 @@
 |---trie 以太坊重要的数据结构MPT的实现
 |---whisper whisper节点的协议
 ```
+
+## 1. 基础知识
+### 1.1. 单位
+
+|单位	    |Wei 值	    |Wei    |
+| --------- | --------- | -------- |  
+|wei	    |1wei	    |1   |
+|Kwei	    |1e3wei	    |1,000  |
+|Mwei	    |1e6wei	    |1,000,000  |
+|Gwei	    |1e9wei	    |1,000,000,000 | 
+|microEther	|1e12wei	|1,000,000,000,000  |
+|milliEther	|1e15wei	|1,000,000,000,000,000 | 
+|Ether	    |1e18wei	|1,000,000,000,000,000,000 | 
+
+交易手续费 = gas * gaslimit
+
+### 1.2 makefile
+
+伪目标
+```text
+.PHONY: clean
+```
+作用：  
+1、为了避免在makefile中定义的只执行命令的目标和工作目录下的实际文件出现名字冲突  
+2、提交执行makefile时的效率
+
+
+### 1.3 编译geth
+```shell
+make geth
+```
+
+### 1.4 运行geth
+```shell
+# 查看版本
+./build/bin/geth version
+```
+
+--datadir 数据目录
+--netwowrk 链chainId
+console 控制台交互
+
+### 1.5搭建私链教程
+https://zhuanlan.zhihu.com/p/515941029  
+
+1、初始化文件
+genesis.json
+```text
+{
+  "config": {
+        "chainId": 10,
+        "homesteadBlock": 0,
+	    "eip150Block": 0,
+        "eip155Block": 0,
+        "eip158Block": 0
+    },
+  "coinbase"   : "0x0000000000000000000000000000000000000000",
+  "difficulty" : "0x20000",
+  "extraData"  : "",
+  "gasLimit"   : "0xffffffff",
+  "nonce"      : "0x0000000000000042",
+  "mixhash"    : "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "parentHash" : "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "timestamp"  : "0x00",
+  "alloc"      : {}
+}
+
+```
+2、初始化命令
+```shell
+../build/bin/geth --datadir ./data init genesis.json
+```
+
+3、启动链
+```shell
+../build/bin/geth --datadir ./data --networkid 10 consol
+e
+```
+
+4、常用命令
+```shell
+#新建账户
+personal.newAccount()
+
+#查看账户
+eth.accouts
+
+#查看余额
+eth.getBalance(eth.accouts[0])
+```
