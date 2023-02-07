@@ -253,3 +253,11 @@ keyword类型的不会被分词器解析
     + ik分词器增加自己的字典,即自己的单词  
         在plugins-ik-config-*
     
+
+
+## 问题
+### 1、cardinality统计为近似值
+参考：https://zhuanlan.zhihu.com/p/521171849  
+
+### 2、mysql同部署数据到es
+github.com/withlin/canal-go
