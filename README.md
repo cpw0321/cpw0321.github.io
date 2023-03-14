@@ -19,6 +19,7 @@
 + [go](/go/go.md)
 + [java](/java/java.md)
 + [solidity](/solidity/solidity.md)
++ [javascript](/javascript/javascript.md)
 
 ### 中间件
 + [elasticsearch](/elasticsearch/elasticsearch.md)

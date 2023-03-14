@@ -4,6 +4,7 @@
 ### 1.1、介绍
 + 基于pos的以太坊侧链技术框架
 + MATIC代币
++ 印度，19年开始
 
 github: https://github.com/maticnetwork/  
 
