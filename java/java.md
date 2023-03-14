@@ -6,7 +6,7 @@
 
 + 静态web  
     网页展示的是静态页面  
-    实现交互jJavascript、VBScript  
+    实现交互Javascript、VBScript  
     不与数据库交互  
 + 动态web  
     网页展示因人而异  

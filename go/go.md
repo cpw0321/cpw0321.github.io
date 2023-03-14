@@ -237,12 +237,64 @@ map是由数组+链表实现的HashTable
 
 ![img.png](images/img09.png)
 
+### 5、swag
+参考：https://blog.csdn.net/JunChow520/article/details/122339247  
+
+```shell
+swag init --parseInternal --parseDependency --dir .,../../internal/api
+```
+
+### 6、protoc
+相关包下载
+```text
+go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
+go install github.com/envoyproxy/protoc-gen-validate@latest
+go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway@v2
+```
+运行命令
+```shell
+protoc -I.:${PROTO_INCLUDE} --go_out=./ --go_opt=paths=source_relative \
+--go-grpc_out=./ --go-grpc_opt=paths=source_relative \
+--grpc-gateway_out ./ \
+--grpc-gateway_opt logtostderr=true \
+--grpc-gateway_opt paths=source_relative \
+--grpc-gateway_opt generate_unbound_methods=true \
+--validate_out="lang=go:." --validate_opt=paths=source_relative \
+proto/*.proto
+```
+
+protoc -I ../../../  -I ./ --go_out=plugins=grpc:. $proto
+参考：https://blog.csdn.net/RA681t58CJxsgCkJ31/article/details/129360092  
+
+参数说明：
+参考：https://www.cnblogs.com/cxt618/p/15647316.html
+```text 
+-I 或者 --proto_path：用于指定所编译的源码，就是我们所导入的proto文件，支持多次指定，按照顺序搜索，如果未指定，则使用当前工作目录。
+--go_out：同样的也有其他语言的，例如--java_out、--csharp_out,用来指定语言的生成位置，用于生成*.pb.go 文件
+--go_opt：paths=source_relative 指定--go_out生成文件是基于相对路径的
+--go-grpc_out：用于生成 *_grpc.pb.go 文件
+--go-grpc_opt：
+    paths=source_relative 指定--go_grpc_out生成文件是基于相对路径的
+    require_unimplemented_servers=false 默认是true，会在server类多生成一个接口
+--grpc-gateway_out：是使用到了 protoc-gen-grpc-gateway.exe 插件，用于生成pb.gw.go文件
+--grpc-gateway_opt：
+    logtostderr=true 记录log
+    paths=source_relative 指定--grpc-gateway_out生成文件是基于相对路径的
+    generate_unbound_methods=true 如果proto文件没有写api接口信息，也会默认生成
+--openapiv2_out：使用到了protoc-gen-openapiv2.exe 插件，用于生成swagger.json 文件
+```
+注意，protobuf有两个重要的版本区别，旧版本github.com/golang/protobuf/protoc-gen-go 它带有protoc-gen-go，它生成protobuf消息的序列化和 grpc代码（使用–go_out=plugins=grpc时）  
+新版本 google.golang.org/protobuf/ 不再支持生成 gRPC 服务定义，如果想要生成grpc代码需要使用新插件protoc-gen-go-grpc。  
+plugins参数 是旧版本，新版本已弃用。新版本方法是 --go-grpc_out=。这里我们使用新版本。  
+
+
 
 
 ---
 
 ## 问题
-### 1. mac下编译错误
+### 1、mac下编译错误
 ```text
 fork/exec: exec format error
 ```
@@ -253,6 +305,14 @@ go env -w GOOS=darwin
 go env -w GOARCH=amd64
 ```
 
+### 2、私有的包下载问题
+参考：https://blog.csdn.net/u014659211/article/details/125256705  
+```shell
+GOPRIVATE="*.xxx.com"
+```
+
+### 3、updates不更新0值  
+通过结构体变量更新字段值, gorm库会忽略零值字段。就是字段值等于0, nil, “”, false这些值会被忽略掉，不会更新。如果想更新零值，可以使用map类型替代结构体
 
 ---
 ## golang规范
@@ -277,8 +337,3 @@ go env -w GOARCH=amd64
   - 对于约定俗成的常量或者变量名，可以全部大写，比如GET、PUT、DELETE等
   - 不能使用特殊符号如$、_等  
 
-
-## 注意
-### 1、gorm
-1.1、updates不更新0值  
-通过结构体变量更新字段值, gorm库会忽略零值字段。就是字段值等于0, nil, “”, false这些值会被忽略掉，不会更新。如果想更新零值，可以使用map类型替代结构体

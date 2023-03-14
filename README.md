@@ -17,6 +17,7 @@
 ### 语言
 + [go](/go/go.md)
 + [java](/java/java.md)
++ [solidity](/solidity/solidity.md)
 
 ### 中间件
 + [elasticsearch](/elasticsearch/elasticsearch.md)
