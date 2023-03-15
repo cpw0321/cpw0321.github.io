@@ -25,7 +25,11 @@ git add remote
 ```text
 https://用户名username:token值@github.com/demo.git
 ```
+不写username:也行  
+
 git remote set-url origin xxx.com/demo.git
+
+
 
 ### 1.3、git合并单个commit到指定的分支上
 参考：https://blog.csdn.net/weixin_44867717/article/details/120885717  
