@@ -58,6 +58,7 @@ contract pureSample {
     - gas少
     - 变量不能被修改
 
+#### 1.2.2、map映射  
 
 
 
