@@ -124,7 +124,7 @@ function getString1(uint256 _number) public pure returns(string memory){
 }
 ```
 + 通过库合约名称调用库函数
-```text
+```solidity
 // 直接通过库合约名调用
 function getString2(uint256 _number) public pure returns(string memory){
     return Strings.toHexString(_number);
