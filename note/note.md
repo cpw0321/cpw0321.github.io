@@ -35,6 +35,14 @@ git checkout 要合并的分支  // 切换到要合并的分支上
 git cherry-pick 上面复制的那个要合并的commit id  // 提交该commit到当前分支
 git push // 推送到B分支远程仓库
 ```
+### 1.4、git拉取远程分支到本地
+参考：https://blog.csdn.net/weixin_44953227/article/details/123730105
+
+两种方式：  
++ git fetch origin 远程分支名:本地分支名
++ git checkout -b 本地分支名 origin/远程分支名
+
+
 
 ## 2、网站
 ```text
