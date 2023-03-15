@@ -45,6 +45,21 @@ contract pureSample {
 }
 ```
 
+### 1.2、变量
+#### 1.2.1、数据位置
++ storage 
+    - 数据存在链上
+    - gas多
++ memory
+    - 临时存在内存里
+    - gas少
++ calldata
+    - 临时存在内存里
+    - gas少
+    - 变量不能被修改
+
+
+
 
 
 
