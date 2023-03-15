@@ -19,7 +19,7 @@ function <function name> (<parameter types>) {internal|external|public|private} 
 + pure函数更严格，既不可读也不可写。
 
 view:
-```solidity
+```text
 pragma solidity ^0.7.0;
 
 contract viewSample {
@@ -32,7 +32,7 @@ contract viewSample {
 }
 ```
 pure:
-```solidity
+```text
 pragma solidity ^0.8.18;
 
 contract pureSample {
@@ -59,7 +59,9 @@ contract pureSample {
   - 变量不能被修改
 
 #### 1.2.2、mapping映射
-
+```text
+mapping(uint => address) public idToAddress; // id映射到地址
+```
 
 #### 1.2.3、常数
 + constant  必须在声明的时候初始化，之后再也不能改变
@@ -69,7 +71,7 @@ contract pureSample {
 
 
 #### 1.2.5、修饰器
-```solidity
+```text
 modifier onlyOwner {
     require(msg.sender == owner); // 检查调用者是否为owner地址
     _; // 如果是的话，继续运行函数主体；否则报错并revert交易
@@ -84,7 +86,7 @@ modifier onlyOwner {
 + emit 调用事件
 
 index 索引
-```solidity
+```text
 event Transfer(address indexed from, address indexed to, uint256 value);
 ```
 
@@ -98,22 +100,22 @@ abstract
 
 #### 1.2.8、异常
 + error
-```solidity
+```text
 error TransferNotOwner(); // 自定义error
 revert TransferNotOwner();
 ```
 + require
-```solidity
+```text
 require(_owners[tokenId] == msg.sender, "Transfer Not Owner");
 ```
 + assert
-```solidity
+```text
 assert(_owners[tokenId] == msg.sender);
 ```
 
 #### 1.2.9 库合约
 + 利用using for指令
-```solidity
+```text
 // 利用using for指令
 using Strings for uint256;
 function getString1(uint256 _number) public pure returns(string memory){
@@ -122,7 +124,7 @@ function getString1(uint256 _number) public pure returns(string memory){
 }
 ```
 + 通过库合约名称调用库函数
-```solidity
+```text
 // 直接通过库合约名调用
 function getString2(uint256 _number) public pure returns(string memory){
     return Strings.toHexString(_number);
