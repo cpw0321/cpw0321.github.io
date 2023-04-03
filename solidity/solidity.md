@@ -141,6 +141,19 @@ function getString2(uint256 _number) public pure returns(string memory){
 ## 2.2、教程
 参考：https://learnblockchain.cn/article/1356  
 参考：https://learnblockchain.cn/article/4336
+参考：https://blog.csdn.net/qq_16137795/article/details/127495671  
+
+```shell
+# 编译 /contracts
+npx hardhat compile 
+
+# 测试 /test
+npx hardhat test
+
+# 部署 scripts
+npx hardhat run scripts/TokenDeploy.js --network hecoTest
+
+```
 
 ## 3、openzeppelin
 ### 3.1 介绍

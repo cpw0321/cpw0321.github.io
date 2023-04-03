@@ -41,3 +41,12 @@ Layer2相关技术：
 + 公链
 + sol代币
 + defi项目多
+
+## 4、支付
+### 4.1 cpay
+https://www.cpay.finance/
+
+
+## 5、nft
+### 5.1 opensea
+nft交易平台
