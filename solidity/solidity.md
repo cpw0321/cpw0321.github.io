@@ -131,6 +131,10 @@ function getString2(uint256 _number) public pure returns(string memory){
 }
 ```
 
+#### 1.2.10 ABI编码解码
+
+#### 1.2.11 签名
+签名参考：https://learnblockchain.cn/article/5012
 
 
 ## 2、hardhat
@@ -162,3 +166,12 @@ npx hardhat run scripts/TokenDeploy.js --network hecoTest
 ```shell
 npm install @openzeppelin/contracts
 ```
+
+## 4、ipfs
+### 4.1 ipfs上传图片
+参考：https://zhuanlan.zhihu.com/p/32682117
+
+图片示例:
+https://ipfs.io/ipfs/QmRRPWG96cmgTn2qSzjwr2qvfNEuhunv6FNeMFGa9bx6mQ  
+
+
