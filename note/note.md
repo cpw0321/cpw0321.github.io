@@ -29,6 +29,8 @@ https://用户名username:token值@github.com/demo.git
 
 git remote set-url origin xxx.com/demo.git
 
+git remote add origin xxx.com/demo.git
+
 
 
 ### 1.3、git合并单个commit到指定的分支上
@@ -49,7 +51,13 @@ git push // 推送到B分支远程仓库
 
 
 ## 2、网站
+代理  
 ```text
 https://sdyun.xyz/
 https://me.tofly.cyou/
+```
+
+chatgpt  
+```text
+https://dev.yqcloud.top/
 ```

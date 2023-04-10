@@ -50,3 +50,6 @@ https://www.cpay.finance/
 ## 5、nft
 ### 5.1 opensea
 nft交易平台
+
+nft: 无聊猿  
+https://ipfs.io/ipfs/QmRRPWG96cmgTn2qSzjwr2qvfNEuhunv6FNeMFGa9bx6mQ  
