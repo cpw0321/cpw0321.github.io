@@ -20,6 +20,8 @@
 + [java](/java/java.md)
 + [solidity](/solidity/solidity.md)
 + [javascript](/javascript/javascript.md)
++ [rust](/rust/rust.md)
++ [move](/move/move.md)
 
 ### 中间件
 + [elasticsearch](/elasticsearch/elasticsearch.md)
