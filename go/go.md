@@ -290,6 +290,18 @@ plugins参数 是旧版本，新版本已弃用。新版本方法是 --go-grpc_o
 
 
 
+### 7、gorm
+#### 7.1、gorm.OnConflict
+```text
+result = db.Clauses(gorm.OnConflict{
+    Columns: []gorm.Column{{Name: "name"}},
+    DoUpdates:  gorm.Set("id", 3),//存在则更新ID为3
+      }).Create(&user2)
+    if result.Error != nil {
+        panic(result.Error)
+    }
+```
+
 
 ---
 
@@ -336,4 +348,6 @@ GOPRIVATE="*.xxx.com"
   - 力求准确表达出变量的意思，不能使用无行业经验的单个字母命名的变量
   - 对于约定俗成的常量或者变量名，可以全部大写，比如GET、PUT、DELETE等
   - 不能使用特殊符号如$、_等  
+
+
 
