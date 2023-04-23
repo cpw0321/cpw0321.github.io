@@ -1,6 +1,7 @@
 # rust
 
 ## 1、安装
+### 1.1、安装
 windows下安装
 ```text
 https://www.rust-lang.org/zh-CN/tools/install
@@ -10,6 +11,13 @@ linux/mac下安装rust和cargo
 ```shell
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
+
+### 1.2、升级
+升级到稳定版本  
+```shell
+rustup update stable
+```
+
 
 ## 2、基础语法
 ### 2.1 ->
