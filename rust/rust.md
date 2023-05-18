@@ -31,4 +31,11 @@ let x: i32 = 42;
 路径分隔符  
 MyModule::MyType  
 
+### 2.4 Option<ID>
+Option<ID>代表一个可选的ID类型的值，其取值可以是Some(id)或None  
+
+### 2.5 b""
+b"" 表示一个空的字节数组，常常用于表示二进制数据或 ASCII 码  
+
+
 

@@ -7,7 +7,7 @@ js文件都可以当成一个模块，每个模块中，都隐含了一个名为
 module对象中有一个exports属性，这个属性的功能是将模块中的变量暴露给其他模块调用。  
 ```
 
-### 1.2、
+### 1.2、工具
 
 ## 2、管理工具
 ### 2.1、管理工具
@@ -27,3 +27,7 @@ windows
 ```shell
 npm install -g yarn
 ```
+
+### 1.3 专业术语理解
+DOM：文档对象模型（Document Object Model），用来操作网页内容的功能
+BOM：浏览器对象模型(Brower Object Model)，用于操作浏览器

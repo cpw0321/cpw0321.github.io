@@ -161,4 +161,4 @@ struct PEACE has drop {}
 ```
 
 #### 2.8.2 phantom
-
+phantom类型interface类型
