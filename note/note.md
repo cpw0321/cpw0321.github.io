@@ -71,3 +71,22 @@ https://dev.yqcloud.top/
 
 ### 3.2 编码
 
+## 4、工具类
+### 4.1 画图
+#### 4.1.1 puml
+```text
+官网
+https://plantuml.com/zh/
+
+在线画图
+http://www.plantuml.com/plantuml/uml/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000
+```
+
+### 4.2 生成在线书
+#### 4.2.1 gitbook
+www.gitbook.com  
+
+#### 4.2.2 readthedocs
+readthedocs.org/  
+
+
