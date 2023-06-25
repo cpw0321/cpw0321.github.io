@@ -29,5 +29,7 @@ npm install -g yarn
 ```
 
 ### 1.3 专业术语理解
-DOM：文档对象模型（Document Object Model），用来操作网页内容的功能
-BOM：浏览器对象模型(Brower Object Model)，用于操作浏览器
++ DOM：文档对象模型（Document Object Model），用来操作网页内容的功能。
++ BOM：浏览器对象模型(Brower Object Model)，用于操作浏览器。  
+
++ jQuery: 是一个轻量级的 JavaScript 库，对 DOM 操作的封装和扩展  

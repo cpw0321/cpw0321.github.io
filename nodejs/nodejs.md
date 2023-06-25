@@ -1,4 +1,8 @@
-# nodejs
+# nodejs  
+
+
+参考笔记：
+https://brucecai55520.gitee.io/bruceblog/notes/nodejs/node.html
 
 ## 1、基础知识
 
@@ -67,4 +71,7 @@ app.listen("8080", () => {
 ```shell
 npm i nodemon -g // g 全局安装会安装到 ~/.node中
 ```
+
+#### 1.3.3 session与jwt
+session适合于前端渲染
 
