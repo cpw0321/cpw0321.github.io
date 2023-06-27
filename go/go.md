@@ -72,6 +72,10 @@ runtime/iface.go   func convT2E 与func convT2I
 将两个并发执行的实体通过通道channel连接起来，所有的消息都通过channel传输
 
 #### 1.6.2 GPM
++ Goroutine代表着Golang中的协程，通过Goroutine封装的代码片段将以协程方式并发执行，是GPM调度器调度的基本单位。
++ Processor代表执行Goroutine的上下文环境及资源，是GPM调度器中关联内核级线程与协程的中间调度器。
++ Machine是内核线程的封装，一个M与一个内核级线程一一对应，为Goroutine的执行提供了底层线程能力支持.
+
 ![img.png](images/img07.png)
 
 ### 1.7 defer执行顺序
@@ -180,7 +184,7 @@ https://blog.csdn.net/qq_39382769/article/details/122335732
 ### 4. map
 #### 4.1 map是否线程安全
 不安全
-```go
+```text
 func TestName1(t *testing.T) {
 	m := make(map[int]int, 10)
 	for i := 1; i <= 10; i++ {
@@ -300,6 +304,25 @@ result = db.Clauses(gorm.OnConflict{
     if result.Error != nil {
         panic(result.Error)
     }
+```
+
+
+### 7、闭包
+一个函数以及其引用的环境变量组合而成的实体  
+当一个函数嵌套在另一个函数内部，并且内部函数引用了外部函数的变量时，就形成了闭包  
+```text
+func main() {
+    base := 10
+
+    // 定义一个闭包函数
+    add := func(num int) int {
+        return base + num
+    }
+
+    // 调用闭包函数
+    result := add(5)
+    fmt.Println(result) // 输出: 15
+}
 ```
 
 

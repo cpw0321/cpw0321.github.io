@@ -33,16 +33,19 @@ mysql:8.0
 #### 2.2.1 事务自动开启和关闭
 ```shell script
 mysql> SHOW VARIABLES LIKE 'autocommit';
+
 +---------------+-------+
 | Variable_name | Value |
 +---------------+-------+
 | autocommit    | ON    |
 +---------------+-------+
+
 1 row in set, 1 warning (0.04 sec)
 SET autocommit = 0|1|ON|OFF;
 ```
 
 #### 2.2.2 事务级别
+
 | 事务隔离级别                       | 脏读 | 不可重复读 | 幻读 |
 | ---------------------------------- | ---- | ---------- | ---- |
 | 读未提交<br />（read-uncommitted） | 是   | 是         | 是   |
