@@ -53,3 +53,24 @@ nft交易平台
 
 nft: 无聊猿  
 https://ipfs.io/ipfs/QmRRPWG96cmgTn2qSzjwr2qvfNEuhunv6FNeMFGa9bx6mQ  
+
+
+## 6、区块链知识
+### 6.1、MEV（侧重收益）
+MEV（最大交易价值）是指在区块链上的交易顺序可以对参与者产生经济影响的现象
+
+概念参考文章：
+https://learnblockchain.cn/article/5810  
+https://www.bitpush.news/articles/4037081  mev攻击与解决方案  
+
+https://www.techflowpost.com/article/detail_12034.html  suave工作原理  
+
+
+### 6.2、rollup（侧重吞吐与效率）
+
+基于Layer2进行扩容，进行数据扩容和降低了gas费用
+
+#### 6.2.1、ZK-Rollup零知识证明
+
+
+#### 6.2.2、Optimistic Rollup乐观

@@ -54,6 +54,7 @@ git push // 推送到B分支远程仓库
 代理  
 ```text
 https://sdyun.xyz/
+https://c.binjie.fun/
 https://me.tofly.cyou/
 ```
 
