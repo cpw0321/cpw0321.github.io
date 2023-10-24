@@ -29,7 +29,7 @@ Layer2相关技术：
 代表性的layer2:
 + Arbitrum
 + Optimism
-+ Polygon
++ Polygon（项目选型）
 + zkSync
 
 #### 2.2.1、layer2出现的目的  
@@ -68,9 +68,17 @@ https://www.techflowpost.com/article/detail_12034.html  suave工作原理
 
 ### 6.2、rollup（侧重吞吐与效率）
 
-基于Layer2进行扩容，进行数据扩容和降低了gas费用
+基于Layer2进行扩容，进行数据扩容和降低了gas费用  
+
+l2项目排名网站：https://l2beat.com/  
+
 
 #### 6.2.1、ZK-Rollup零知识证明
 
 
 #### 6.2.2、Optimistic Rollup乐观
+
++ Arbitrum 
+介绍：https://huobiresearch.medium.com/%E4%B8%80%E6%96%87%E8%AF%BB%E6%87%82%E4%BB%A5%E5%A4%AA%E5%9D%8A%E4%BA%8C%E5%B1%82%E9%A1%B9%E7%9B%AEarbitrum-d9fdc658b1f3
+
+https://learnblockchain.cn/article/2665

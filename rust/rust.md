@@ -38,4 +38,8 @@ Option<ID>代表一个可选的ID类型的值，其取值可以是Some(id)或Non
 b"" 表示一个空的字节数组，常常用于表示二进制数据或 ASCII 码  
 
 
-
+## 3、编辑器
+### 3.1、vscode
+#### 3.1.插件
++ crates 包管理
++ rust-analyzer
