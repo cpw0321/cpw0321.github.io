@@ -43,3 +43,8 @@ b"" 表示一个空的字节数组，常常用于表示二进制数据或 ASCII 
 #### 3.1.插件
 + crates 包管理
 + rust-analyzer
+
+
+## 4、资料
+### 4.1、书
++ https://course.rs/
