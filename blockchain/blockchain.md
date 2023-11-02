@@ -75,13 +75,44 @@ l2项目排名网站：https://l2beat.com/
 
 #### 6.2.1、ZK-Rollup零知识证明
 
+简单理解就是在链上发布一个proof，即验证椭圆曲线的一个点
 
 #### 6.2.2、Optimistic Rollup乐观
+
+简单理解编译成合约字节码，验证部分内容
 
 + Arbitrum 
 介绍：https://huobiresearch.medium.com/%E4%B8%80%E6%96%87%E8%AF%BB%E6%87%82%E4%BB%A5%E5%A4%AA%E5%9D%8A%E4%BA%8C%E5%B1%82%E9%A1%B9%E7%9B%AEarbitrum-d9fdc658b1f3  
 
 https://learnblockchain.cn/article/2665  
 
+
+
+## 7、跨链
+### 7.1、cosmos-sdk
+底层Tendermint
+
+
+
+## 8、sdk中用到的加密知识  
+### 8.1、加密算法  
+非对称加密：ed25519、sm2  
+对称加密：AES  
+原理：  
+国密签名和验签：https://learnblockchain.cn/article/1507  
+库：  
+github.com/ZZMarquis/gm  国密库，签名实际为r+ s 64个字节长度  
+crypto/ed25519     标准库生成的私钥实际为私钥+公钥   私钥和公钥都为32字节长度   
+
+### 8.2、hash算法
+SM3 sha256  
+
+### 8.3、助记词
+bip32、bip44、bip39  
+原理：
+https://learnblockchain.cn/2018/09/28/hdwallet/#%E5%8A%A9%E8%AE%B0%E8%AF%8D%E6%8E%A8%E5%AF%BC%E5%87%BA%E7%A7%8D%E5%AD%90
+库：  
+github.com/tyler-smith/go-bip32  
+github.com/tyler-smith/go-bip39  
 
 

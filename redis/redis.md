@@ -9,7 +9,15 @@ docker run -d --name redis6 -p 6379:6379 redis:6.0
 ## 一、 基础
 ### 1.1. 基本数据类型
 string、hash、list、set、zset
-![redis01.png](images/redis01.png)
+![redis01.png](images/redis01.png)  
+
+
+缓存击穿：一个并发访问量比较大的key在某个时间过期，导致所有的请求直接打在DB上。  
+解决办法：加互斥锁，或者设置热点数据永不过期  
+缓存穿透：请求数据库中没有的id，缓存中也没有，所以会导致大量访问数据库  
+解决办法：redis -1 null 或者 在请求体中拦截非法参数  
+雪崩：内存中的key同一时间失效，请求直接打到数据库  
+解决办法：大量key不要同一时间失效  
 
 ### 1.2. 缓存击穿（cache无db有）
 #### 1.2.1. 描述

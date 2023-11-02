@@ -307,7 +307,7 @@ result = db.Clauses(gorm.OnConflict{
 ```
 
 
-### 7、闭包
+### 8、闭包
 一个函数以及其引用的环境变量组合而成的实体  
 当一个函数嵌套在另一个函数内部，并且内部函数引用了外部函数的变量时，就形成了闭包  
 ```text
@@ -325,6 +325,34 @@ func main() {
 }
 ```
 
+
+### 9、defer return panic执行顺序
+```text
+func test2() {
+  defer func() { //如果在函数内部捕获panic  则函数上层的逻辑不会中断
+    fmt.Println("ddddddd")
+    if r := recover(); r != nil {
+      fmt.Println(r)
+    }
+  }()
+  defer fmt.Println("cccccc")
+  fmt.Println("aaaaaaaaa")
+  panic("this is a error !!!") //panic 之后 所有的逻辑都不会在执行
+  fmt.Println("bbbbbbbbb")
+}
+```
+输出结果  
+aaaaaaaaa  
+cccccc  
+ddddddd  
+this is a error !!!  
+
+总结
+1.return之后执行defer。  
+2.defer是按照栈的顺序执行，先进后出。  
+3.panic之后执行defer。  
+4.panic会中断流程，panic之后的逻辑不会运行。  
+5.如果不想影响主流程的逻辑应该在函数方法中recover。  
 
 ---
 
