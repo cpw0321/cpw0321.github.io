@@ -56,6 +56,7 @@ sudo systemctl restart docker
 ### 3、命令参数
 + -d 后台运行
 + -v 挂载卷
++ -p <宿主机端口>:<容器端口>
 
 ### 4、镜像制作
 dockerfile
@@ -67,6 +68,46 @@ FROM golang:1.18
 ```
 
 + 多阶段构建，编译和创建镜像分开
+
+
+
+### 5、示例
+```text
+FROM golang:1.17.11 AS builder
+
+LABEL stage=gobuilder
+
+ENV CGO_ENABLED 1
+ENV GOOS linux
+ENV GOPROXY https://goproxy.cn,direct
+
+WORKDIR /build/
+
+COPY . .
+#ADD go.mod .
+#ADD go.sum .
+#RUN go mod download
+
+RUN CGO_ENABLED=1 go build -ldflags="-s -w" -o /app/app main.go
+
+FROM ubuntu:18.04
+
+RUN apt-get update && apt-get install -y locales ca-certificates tzdata && mkdir -p /app/etc/
+ENV TZ Asia/Shanghai
+
+WORKDIR /app
+COPY --from=builder /app/app /app/app
+COPY etc/config.toml /app/etc/config.toml
+EXPOSE 8080
+CMD ["./app", "-f", "/app/etc/config.toml"]
+```
+
+环境变量注入  
+```text
+CMD envsubst < /app/etc/api.template.yaml > /app/etc/api.yaml && ./api
+```
+envsubst < input_file > output_file  
+
 
 
 ---

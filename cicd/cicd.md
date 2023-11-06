@@ -14,3 +14,27 @@
 
 源码：https://github.com/argoproj/argo-cd/
 
+
+
+## 三、Makefile
+
+```text
+VERSION ?= latest
+IMAGE := harbor.example.com/auth:$(VERSION)
+
+build:
+	@docker build -t $(IMAGE) .
+
+push:
+	@docker push $(IMAGE)
+
+start:
+	@docker run -d -p 8080:8080 --name auth $(IMAGE)
+
+stop:
+	@docker rm -f auth
+
+logs:
+	@docker logs -f auth --tail=200
+
+```

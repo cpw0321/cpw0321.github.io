@@ -38,6 +38,18 @@ Option<ID>代表一个可选的ID类型的值，其取值可以是Some(id)或Non
 b"" 表示一个空的字节数组，常常用于表示二进制数据或 ASCII 码  
 
 
+### 2.6 宏macor
++ 声明宏
+  - vec! println!
++ 过程宏
+  - 自定义派生（derive）
+  - 类属性
+  - 类函数
+
+要理解宏，需要知道rust的编译过程https://www.cnblogs.com/gaozejie/p/16950786.html  
+
+
+
 ## 3、编辑器
 ### 3.1、vscode
 #### 3.1.插件
@@ -47,4 +59,5 @@ b"" 表示一个空的字节数组，常常用于表示二进制数据或 ASCII 
 
 ## 4、资料
 ### 4.1、书
-+ https://course.rs/
++ https://course.rs/  
++ https://kaisery.github.io/
