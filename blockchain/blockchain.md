@@ -90,7 +90,7 @@ https://learnblockchain.cn/article/2665
 
 ## 7、跨链
 ### 7.1、cosmos-sdk
-底层Tendermint
+底层Tendermint，最新切换到cometbft
 
 
 

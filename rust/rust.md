@@ -117,7 +117,22 @@ fn main(){
 }
 ```
 
-#### 2.9.错误处理
+### 2.9、错误处理
+unwrap -> result/match -> 自定义错误（重写source）+ From转换  
+
+
+#### 2.9.1、自定义错误
++ 实现impl std::fmt::Display的trait
++ 实现impl std::fmt::debug的trait，一般通过注解#[derive(Debug)]  
++ 实现impl std::err::Error
+
+
+
+
+### 2.9、cargo包管理
+
+
+
 
 
 ## 3、编辑器
