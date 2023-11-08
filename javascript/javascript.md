@@ -18,6 +18,9 @@ module对象中有一个exports属性，这个属性的功能是将模块中的�
 + npm侧重于安装或者卸载某个模块的。重在安装，并不具备执行某个模块的功能。  
 
 ### 2.1.2、yarn
+JavaScript包管理工具，用于管理项目中的依赖关系 （Facebook和Google等公司共同参与开源）
+
+
 macos  
 ```shell
 curl -o- -L https://yarnpkg.com/install.sh | bash
@@ -33,3 +36,10 @@ npm install -g yarn
 + BOM：浏览器对象模型(Brower Object Model)，用于操作浏览器。  
 
 + jQuery: 是一个轻量级的 JavaScript 库，对 DOM 操作的封装和扩展  
+
+
+### 1.4 浏览器中一些常用的对象
+#### 1.4.1、播放速度
+```text
+document.querySelector('video').playbackRate=3
+```
