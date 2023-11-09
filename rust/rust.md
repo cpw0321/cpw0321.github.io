@@ -130,9 +130,22 @@ unwrap -> result/match -> 自定义错误（重写source）+ From转换
 
 
 ### 2.9、cargo包管理
+目的：版本管理，为了解决依赖  
+
+java --> meaven  
+python --> pip  
+nodejs --> npm 
 
 
++ cargo.toml
+  - edition = "2021"   三年一个
 
+
+#### 2.9.1、module
+
++ mod --> module.rs/modoule/mod.rs  
++ use --> 使模块路径在使用时变短
++ super --> 指向父级
 
 
 ## 3、编辑器

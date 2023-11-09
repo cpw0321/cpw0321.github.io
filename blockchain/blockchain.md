@@ -75,7 +75,16 @@ l2项目排名网站：https://l2beat.com/
 
 #### 6.2.1、ZK-Rollup零知识证明
 
-简单理解就是在链上发布一个proof，即验证椭圆曲线的一个点
+简单理解就是在链上发布一个proof，即验证椭圆曲线的一个点  
+eg:  
+  1000个交易利用零知识证明精简为一条交易在链上执行
+
+
++ zkevm
+  - 没有zkevm时，每个个合约都需要生成一个证明去证明自己的不能跨合约，
+  zkevm所有的都可以放在zkevm和evm一样可以执行所有的  
+![img.png](images/zkevm比较.png)
+
 
 #### 6.2.2、Optimistic Rollup乐观
 
@@ -116,3 +125,30 @@ github.com/tyler-smith/go-bip32
 github.com/tyler-smith/go-bip39  
 
 
+
+## 9、bitcoin
+### 9.1、隔离见证SegWit
+对比特币进行软分叉，及对原来的块进行扩容
+![img.png](images/bitcoin隔离见证.png)
+原来只能存储1M，扩容后最大可以存储4M，后面可以进行nft存储，一个图片可以在4M以内
+
+### 9.2、闪电网络
+就是bitcoin二层网络
++ peer
++ channel
+
+peer之前的通过channel进行转账，最后将交易回传到比特币主网，即闪电网络中进行多笔交易，将最后的结果回传到主网即一笔交易
+
+### 9.3、nft--Ordinals
+1btc=10^8sat 聪
+
++ 对sat进行排序
++ 存储格式Taproot
+
+
+PSBT可以实现去中心化markplace
+
+
+### 9.4、brc-20
+解决Ordinals的UTXO模型怎么实现brc-20的accout模型  
+需要一些indexer去支持，目前都是自己实现，官方没有

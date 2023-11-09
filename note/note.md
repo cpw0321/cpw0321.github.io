@@ -83,6 +83,15 @@ https://plantuml.com/zh/
 http://www.plantuml.com/plantuml/uml/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000
 ```
 
+#### 4.1.2、xmind逻辑思维图
+```text
+https://www.edrawmind.com/
+```
+
+#### 4.1.3、draw.io
+
+
+
 ### 4.2 生成在线书
 #### 4.2.1 gitbook
 www.gitbook.com  
