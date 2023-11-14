@@ -127,6 +127,18 @@ github.com/tyler-smith/go-bip39
 
 
 ## 9、bitcoin
+
++ 比特币全节点下载
+  - https://bitcoincore.org/en/download/
+
++ 查看比特币容量大小
+  - https://blockchain.com/explorer  
+
++ 比特币钱包
+  - https://bitcoin.org/
+
+
+
 ### 9.1、隔离见证SegWit
 对比特币进行软分叉，及对原来的块进行扩容
 ![img.png](images/bitcoin隔离见证.png)
@@ -146,9 +158,37 @@ peer之前的通过channel进行转账，最后将交易回传到比特币主网
 + 存储格式Taproot
 
 
+交易代码：https://github.com/VincentDebug/go-ord-tx  
+
+
 PSBT可以实现去中心化markplace
 
 
 ### 9.4、brc-20
-解决Ordinals的UTXO模型怎么实现brc-20的accout模型  
-需要一些indexer去支持，目前都是自己实现，官方没有
+brc20是借助ordinals协议铭刻json数据，只定义了部署、铸造和转账行为
+brc20代币的持有状态由链下维护
+```text
+{  
+"p": "brc-20",//Protocol: 帮助线下的记账系统识别和处理brc-20事件  
+"op": "deploy",//op 操作: 事件类型 (Deploy, Mint, Transfer)  
+"tick": "ordi", //Ticker: brc-20代币的标识符，长度为4个字母（可以是emoji） 
+"max": "21000000",//Max supply: brc-20代币的最大供应量  
+"lim": "1000"//Mint limit: 每次brc-20代币铸造量的限制}
+```
+
+需要一些indexer去支持，目前都是自己实现，官方没有  
+参考：https://github.com/unisat-wallet/libbrc20-indexer  
+
+
+### 9.5、bitvm
+
+
+### 9.6、rgb
+
+
+
+
+
+## 学习资料
++ 区块链相关https://github.com/biquanlibai/blockchain-course
+

@@ -13,32 +13,44 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
 ### 1.2、升级
-升级到稳定版本  
++ 升级到稳定版本  
 ```shell
 rustup update stable
 ```
 
++ 安装其他版本
+```text
+rustup install 1.30.0
+```
+
++ 切换特定版本
+```text
+rustup override set 1.52.0
+```
 
 ## 2、基础语法
-### 2.1 ->
+### 2.1、 ->
 return 数据类型
 
-### 2.2 : 
+### 2.2、 : 
 类型注解  
 let x: i32 = 42;  
 
-### 2.3 ::
+### 2.3、 ::
 路径分隔符  
 MyModule::MyType  
 
-### 2.4 Option<ID>
+### 2.4、 Option<ID>
 Option<ID>代表一个可选的ID类型的值，其取值可以是Some(id)或None  
 
-### 2.5 b""
+### 2.5、 b""
 b"" 表示一个空的字节数组，常常用于表示二进制数据或 ASCII 码  
 
+### 2.6、 ()
+() 表示 Rust 中的单元类型，也被称为 unit 类型。它类似于其他编程语言中的 void 类型，表示“没有值”的概念
 
-### 2.6 宏macor
+
+### 2.7、宏macor
 + 声明宏
   - vec! println!
 + 过程宏
@@ -49,7 +61,7 @@ b"" 表示一个空的字节数组，常常用于表示二进制数据或 ASCII 
 要理解宏，需要知道rust的编译过程https://www.cnblogs.com/gaozejie/p/16950786.html  
 
 
-### 2.7 所有权
+### 2.8、所有权
 理解变量在堆栈上分配以及copy和move  
 
 ```text
@@ -71,25 +83,25 @@ struct A 虽然内部成员a和b实现了copy trait但是直接println a会报�
 + 解引用会获取所有权
 
 
-### 2.8、类型
-#### 2.8.1、指针
+### 2.9、类型
+#### 2.9.1、指针
 + 普通指针---长度确定
   - &[u32; 5]
 + 胖指针---长度不确定
   - &[u32] 
 
-#### 2.8.2、类型自动推导
+#### 2.9.2、类型自动推导
 ```text
 let s = "1";
 // println!("{}",s.parse().unwrap()); // 错误，parse是泛型，无法知道是usize还是i32类型，无法自动推导需要指明
 println!("{}",s.parse::<i32>().unwrap());
 ```
 
-#### 2.8.3、trait
+#### 2.9.3、trait
 面向接口编程，定义和实现分开，实现解耦 ====》go中的interface
 
 
-#### 2.8.类型转换
+#### 2.9.4、类型转换
 + 基本数据类型转换 as
 ```text
 struct S(i32);  // 元组结构体
@@ -117,11 +129,11 @@ fn main(){
 }
 ```
 
-### 2.9、错误处理
+### 2.10、错误处理
 unwrap -> result/match -> 自定义错误（重写source）+ From转换  
 
 
-#### 2.9.1、自定义错误
+#### 2.10.1、自定义错误
 + 实现impl std::fmt::Display的trait
 + 实现impl std::fmt::debug的trait，一般通过注解#[derive(Debug)]  
 + 实现impl std::err::Error
@@ -129,7 +141,7 @@ unwrap -> result/match -> 自定义错误（重写source）+ From转换
 
 
 
-### 2.9、cargo包管理
+### 2.11、cargo包管理
 目的：版本管理，为了解决依赖  
 
 java --> meaven  
@@ -141,12 +153,38 @@ nodejs --> npm
   - edition = "2021"   三年一个
 
 
-#### 2.9.1、module
+#### 2.11.1、module
 
 + mod --> module.rs/modoule/mod.rs  
 + use --> 使模块路径在使用时变短
 + super --> 指向父级
 
+
+
+### 2.12、测试
+#### 2.12.1、单元测试
++ 启用多线程执行测试：  
+cargo test RUNST_TEST_THREADS=1
+
++ #[ignore]
+cargo test -- --ignore
+
+
++ #[should_panic]
+
+
+#### 2.12.2、集成测试
+集成测试位于被测试代码的外面  -- tests目录
+目的：测试被测试代码的多个方法是否能一起正常工作  
+
+
+#### 2.12.3、基准测试
++ #[bench]
+
+
+
+### 2.12、futures异步编程
+async会阻塞整个线程，阻塞的future会让出线程控制权，允许其他future运行
 
 ## 3、编辑器
 ### 3.1、vscode

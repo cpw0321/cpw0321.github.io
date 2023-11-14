@@ -15,6 +15,7 @@
 + [设计模式](/设计模式/设计模式.md)
 + [blockchain](/blockchain/blockchain.md)
 + [nodejs](/nodejs/nodejs.md)
++ [ipfs](/ipfs/ipfs.md)
 
 ### 语言
 + [go](/go/go.md)
