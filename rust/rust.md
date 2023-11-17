@@ -182,9 +182,39 @@ cargo test -- --ignore
 + #[bench]
 
 
+#### 2.12.4、mock
+https://github.com/asomers/mockall  
 
-### 2.12、futures异步编程
+
+#### 2.12.5、模糊测试 fuzz
+模糊测试用于通过提供随机数据作为输入来发现安全性和稳定性  
+https://rust-fuzz.github.io/book/  
+
+
+
+### 2.13、futures异步编程
 async会阻塞整个线程，阻塞的future会让出线程控制权，允许其他future运行
+
+#### 2.13.1、executor
+用户态协程（future）依赖executor（负责协程的调试）  
+哪些库有executor:
+- futures库自带
+- tokio 当使用#[tokio::main]时，就引用了tokio的executor
+- async::std, 与tokio类似
+
+
+#### 2.13.2、async/await
+
+
+
+### 2.13.3、tokio
+#### 2.13.3.1、generator
+与闭包的区别是有yield(暂停)  
+
+
+
+
+
 
 ## 3、编辑器
 ### 3.1、vscode
@@ -193,7 +223,38 @@ async会阻塞整个线程，阻塞的future会让出线程控制权，允许其
 + rust-analyzer
 
 
-## 4、资料
-### 4.1、书
+
+## 4、链路追踪
+### 4.1、库
++ https://github.com/tokio-rs/tracing
++ https://github.com/sile/rustracing
++ https://github.com/tikv/minitrace-rust
+
+### 4.2、概念
++ trace tree --> 完整的调用过程，即：一次请求
++ span --> 一次rpc请求
++ tag --> key:value，每个span可以有多个tag
++ spanContext --> 边界，传递一些信息到下级span，比如（trace_id, span_id）
+
+
+openTracing提供了一系列统一的接口规范（k8s的基金会）
+![img.png](images/openTracing模型.png)  
+
+
+### 4.3、jaeger
+uber团队实现的开源的分布式追踪系统，基于openTracing标准
+- golang实现
+
+
+
+
+
+## 5、资料
+### 5.1、书
 + https://course.rs/  
 + https://kaisery.github.io/
+
+
+
+
+

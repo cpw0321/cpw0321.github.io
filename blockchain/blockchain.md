@@ -86,6 +86,9 @@ eg:
 ![img.png](images/zkevm比较.png)
 
 
+##### 6.2.1.1、项目：  
++ https://github.com/0xPolygonHermez/zkevm-node（polygon zkevm）
+
 #### 6.2.2、Optimistic Rollup乐观
 
 简单理解编译成合约字节码，验证部分内容
@@ -101,6 +104,8 @@ https://learnblockchain.cn/article/2665
 ### 7.1、cosmos-sdk
 底层Tendermint，最新切换到cometbft
 
+### 7.2、项目
++ https://github.com/evmos/ethermint  （cosmos+evm实现）
 
 
 ## 8、sdk中用到的加密知识  
@@ -190,5 +195,5 @@ brc20代币的持有状态由链下维护
 
 
 ## 学习资料
-+ 区块链相关https://github.com/biquanlibai/blockchain-course
++ 区块链相关视频教程 https://github.com/biquanlibai/blockchain-course
 

@@ -17,10 +17,13 @@ ipfs init // 会生成~/.ipfs
 
 
 echo "hello world" > hello
-ipfs add hello
+$ ipfs add hello
 # This should output a hash string that looks something like:
 # QmT78zSuBmuS4z925WZfrqQ1qHaJ56DQaTfyMUF7F8ff5o
-ipfs cat <that hash>
+$ ipfs cat <that hash>
+
+// 连接主网，进行文件上传与数据同步
+$ ipfs daemon
 ```
 
 
