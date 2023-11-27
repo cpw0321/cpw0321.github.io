@@ -27,3 +27,7 @@ $ ipfs daemon
 ```
 
 
+### 1.3、ipfs-rpc-client
+https://github.com/ipfs/kubo/issues/9124  
+
+

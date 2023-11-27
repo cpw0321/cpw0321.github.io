@@ -142,6 +142,31 @@ github.com/tyler-smith/go-bip39
 + 比特币钱包
   - https://bitcoin.org/
 
++ 测试网络水龙头
+  - https://coinfaucet.eu/en/btc-testnet/
+  - https://signetfaucet.com/  signet网络的
+
+```text
+signet=1
+#testnet=1
+txindex=1
+#testnet=1
+
+[test]
+#server=1
+#rpcuser=user
+#rpcpassword=password
+#rpcallowip=127.0.0.1
+#rpcport=8332
+
+[signet]
+server=1
+rpcuser=user
+rpcpassword=password
+rpcallowip=0.0.0.0/0
+rpcport=8332
+```
+
 
 
 ### 9.1、隔离见证SegWit

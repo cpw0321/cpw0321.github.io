@@ -175,3 +175,10 @@ npm install @openzeppelin/contracts
 https://ipfs.io/ipfs/QmRRPWG96cmgTn2qSzjwr2qvfNEuhunv6FNeMFGa9bx6mQ  
 
 
+## 5、合约调用
+### 5.1、升级合约部署
+https://learnblockchain.cn/article/2920  
+
+
+### 5.2、 golang调用合约方法
+https://learnblockchain.cn/article/6220  
