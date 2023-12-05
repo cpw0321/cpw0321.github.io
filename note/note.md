@@ -104,4 +104,7 @@ readthedocs.org/
 + https://orbstack.dev/ --> mac 
 
 
+## 5、AI
 
+### 5.1、代码类工具
++ codeium 代码自动补全和联想

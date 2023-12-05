@@ -216,9 +216,40 @@ brc20代币的持有状态由链下维护
 ### 9.6、rgb
 
 
+### 9.7、taproot
+使用Schnorr签名和Merkle树等技术，提高比特币交易的隐私性、安全性和可扩展性
 
+
+### 9.8、stacks bitcoin二层网络
+将bitcoin锚定在自己链上，来通过获取stx自己的代币来获取bitcoin收益，不能算真正意义上的bitcoin二层网络
+只是强制将自己的链和bitcoin关联起来
+
+
+### 9.9、Discreet Log Contracts谨慎日志合约
+
++ Schnorr 签名  
+  - 基于离散对数问题的数字签名方案
+
+alice:  
+PubAi ∨ (PubB ∧ TimeDelay)  
+个人理解：  
+alcie和bob 共同生成一笔交易各自存1btc，发送到bitcoin上，取钱需要两个人的签名  
+上面的公式 PubAi = pubA + S(预言机生成的加密结果)，这个交易放在链下，等结果公布了发布到链上，如果alice赢了，他可以发送交易取回赢得，bob与其类似  
+
+
+#### 9.9.1、chain.link
+
+#### 9.9.2、rust-dlc
+```text
+编译sample报错openssl
+解决：
+
+```
+
+### 9.10、Oracle预言机
 
 
 ## 学习资料
 + 区块链相关视频教程 https://github.com/biquanlibai/blockchain-course
++ btc学习 https://www.btcstudy.org/
 

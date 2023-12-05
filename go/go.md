@@ -235,7 +235,7 @@ func TestName3(t *testing.T) {
 #### 4.2 map底层原理
 
 https://blog.csdn.net/luolianxi/article/details/105371079
-map是由数组+链表实现的HashTable
+map是由哈希桶+哈希链实现的HashTable
 
 ![img.png](images/img08.png)
 
