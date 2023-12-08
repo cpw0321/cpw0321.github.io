@@ -60,6 +60,22 @@ b"" 表示一个空的字节数组，常常用于表示二进制数据或 ASCII 
 
 要理解宏，需要知道rust的编译过程https://www.cnblogs.com/gaozejie/p/16950786.html  
 
+```rust
+#[derive(Debug, Default)]   // Default作用 类型有默认初始化值，即golang中零值
+
+// 从 &str 类型到 XXX 类型的转换更加方便
+impl From<&str> for XXX {}
+
+// 是一个属性（Attribute），用于告知编译器允许存在未使用的代码
+#[allow(dead_code)] 
+
+// PartialEq trait 用于比较两个值是否相等，通常用于测试和数据处理过程中的判断
+#[drive(Debug, PartialEq)] 
+assert_eq!(person1, person2);
+```
+
+
+
 
 ### 2.8 所有权
 理解变量在堆栈上分配以及copy和move  
@@ -265,11 +281,35 @@ epoll实现tcp
 Deref trait --> 拥有指针语义
 Drop trait --> 拥有内存自动管理机制
 
+智能指针：
+1、可以自动解引用，提升开发体验
+2、可以自动管理内存，安全无忧
+
 + Box
+  - 栈上数据分配到堆上
 + Vec<T> | String
 + Cell | RefCell
+  - 使用不变引用可以修改数据(rust同一时间只能有一个可变引用)
+  - cell<T> T实现copy
+  - RefCell 使编译可以通过，将错误推迟到运行时，比cell支持的数据更广
 + Rc | Arc
+  - 引用计数
+  - Rc单线程，Arc多线程
 + RwLock | Mutex
+
+
+### 2.18 trait
++ 接口
++ 类型标记
++ 泛型限定
++ 抽象类型
+
++ 静态分发 --> 没有开销的抽象
++ 动态分发 --> 有运行时开销（寻址过程） dyn
+
+
++ eraly bound
++ late bound
 
 
 ## 3 编辑器
