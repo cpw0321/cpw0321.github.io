@@ -246,3 +246,84 @@ func main() {
 }
 
 ```
+
+
+```text
+eth_call 只能是获取只读数据，其他合约写入数据还是需要调用SendTransaction
+https://blog.csdn.net/hitpter/article/details/134083805
+
+package main
+
+import (
+	"bytes"
+	"context"
+	"crypto/ecdsa"
+	"fmt"
+	"github.com/ethereum/go-ethereum"
+	"github.com/ethereum/go-ethereum/accounts/abi"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/ethereum/go-ethereum/ethclient"
+	"log"
+	"math/big"
+)
+
+var abiStr = ``
+var (
+	url = "http://127.0.0.1:8123"
+	// 合约地址
+	address = ""
+	// 私钥不需要0x,有的话自己传参时处理一下
+	PRIVATE_KEY_TEST = ""
+)
+
+func main() {
+	// 连接到以太坊网络
+	client, err := ethclient.Dial(url)
+	if err != nil {
+		log.Fatal("Dial failed:", err)
+	}
+	// 合约地址
+	contractAddress := common.HexToAddress(address)
+
+	// 创建发送交易的账户
+	privateKey, err := crypto.HexToECDSA(PRIVATE_KEY_TEST)
+	if err != nil {
+		log.Fatal("hex err:", err)
+	}
+	publicKey := privateKey.Public()
+	publicKeyECDSA, ok := publicKey.(*ecdsa.PublicKey)
+	if !ok {
+		log.Fatal("error casting public key to ECDSA")
+	}
+	fromAddress := crypto.PubkeyToAddress(*publicKeyECDSA)
+
+	amount, _ := new(big.Int).SetString("100000", 10)
+	toAddress := "0x6e4703bd224D03Ed1a88Aac47D0244D3599F0C07"
+	value := [32]byte{}
+	copy(value[:], "1c7fd15")
+
+	// 构造方法调用数据
+	contractAbi, err := abi.JSON(bytes.NewReader([]byte(abiStr)))
+	if err != nil {
+		fmt.Println("abi.JSON error ,", err)
+		return
+	}
+	data, err := contractAbi.Pack("deposit", value, common.HexToAddress(toAddress), amount)
+	if err != nil {
+		fmt.Println("contractAbi.Pack error:", err)
+		return
+	}
+	callMsg := ethereum.CallMsg{
+		From: fromAddress,
+		To:   &contractAddress,
+		Data: data,
+	}
+
+	_, err = client.CallContract(context.Background(), callMsg, nil)
+	if err != nil {
+		fmt.Println("CallContract err:", err)
+	}
+
+}
+```

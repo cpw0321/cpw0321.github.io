@@ -256,6 +256,28 @@ alcie和bob 共同生成一笔交易各自存1btc，发送到bitcoin上，取钱
 ### 9.10 Oracle预言机
 
 
+
+### 9.11 ordinals协议
+
+
+### 9.12 runes协议
+
+
+## 10 eth相关的链
+### 10.1 polygon
++ 水龙头：https://faucet.polygon.technology/
++ 浏览器：https://testnet-zkevm.polygonscan.com/tx/0x4a56eac3a326341429d3323cad9bbba9139f4d8fdf6974192cdd27ffd8a222b0
++ rpc: https://rpc.public.zkevm-test.net  Chain ID: 1442  Currency symbol: ETH
+
+
+
+### 10.2 goerli
++ 浏览器: https://goerli.etherscan.io/
+
+
+
+
+
 ## 学习资料
 + 区块链相关视频教程 https://github.com/biquanlibai/blockchain-course
 + btc学习 https://www.btcstudy.org/
