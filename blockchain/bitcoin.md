@@ -1,210 +1,135 @@
-# 代码参考
+# bitcoin
 
-## 1、bitcoin
-### 1.1、bitcoin发送交易
+## 1.1 基础
+
++ 比特币全节点下载
+  - https://bitcoincore.org/en/download/
+
++ 查看比特币容量大小
+  - https://blockchain.com/explorer  
+
++ 比特币钱包
+  - https://bitcoin.org/
+
++ 测试网络水龙头
+  - https://coinfaucet.eu/en/btc-testnet/
+  - https://signetfaucet.com/  signet网络的
+
++ 浏览器
+  - https://mempool.space/
+
 ```text
-package main
+signet=1
+#testnet=1
+txindex=1
+#testnet=1
 
-import (
-	"fmt"
-	"github.com/btcsuite/btcd/btcjson"
-	"github.com/btcsuite/btcd/chaincfg"
-	"log"
+[test]
+#server=1
+#rpcuser=user
+#rpcpassword=password
+#rpcallowip=127.0.0.1
+#rpcport=8332
 
-	"github.com/btcsuite/btcd/btcutil"
-	"github.com/btcsuite/btcd/rpcclient"
-)
-
-func main() {
-	// 连接到比特币节点的RPC服务器
-	connCfg := &rpcclient.ConnConfig{
-		Host:         "127.0.0.1:8332",
-		User:         "test",
-		Pass:         "123456",
-		HTTPPostMode: true,
-		DisableTLS:   true, // 如果比特币节点未启用SSL/TLS，需要设置为true
-	}
-	client, err := rpcclient.New(connCfg, nil)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer client.Shutdown()
-
-	// 源地址和目标地址
-	sourceAddrStr := "tb1qr2ssscefkjeehv5kl0alhwj976v6cpxqlskn7n"
-	destAddrStr := "tb1qtzqjsdwskw4r52mzek7jmd609rnmtlwf4ev79g"
-
-	//var defaultNet chaincfg.Params
-	//networkName := NetworkName
-	//switch networkName {
-	//case "signet":
-	//	defaultNet = chaincfg.SigNetParams
-	//case "testnet":
-	//	defaultNet = chaincfg.TestNet3Params
-	//case "main":
-	//	defaultNet = chaincfg.MainNetParams
-	//case "simnet":
-	//	defaultNet = chaincfg.SimNetParams
-	//}
-
-	// 获取源地址的未花费交易输出（UTXO）
-	sourceAddr, err := btcutil.DecodeAddress(sourceAddrStr, &chaincfg.SigNetParams)
-	if err != nil {
-		log.Fatal(err)
-	}
-	unspentTxs, err := client.ListUnspentMinMaxAddresses(1, 9999999, []btcutil.Address{sourceAddr})
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	// 计算输入数量和找零
-	var inputs []btcjson.TransactionInput
-	totalInputAmount := int64(0)
-	for _, unspentTx := range unspentTxs {
-		totalInputAmount += int64(unspentTx.Amount * 1e8)
-		inputs = append(inputs, btcjson.TransactionInput{
-			Txid: unspentTx.TxID,
-			Vout: unspentTx.Vout,
-		})
-	}
-	changeAmount := totalInputAmount - 200000 - amount // 手续费设为 0.0002 BTC
-	if changeAmount > 0 {
-		changeAddr, err := btcutil.DecodeAddress(sourceAddrStr, &chaincfg.MainNetParams)
-		if err != nil {
-			log.Fatal(err)
-		}
-		destAddr, err := btcutil.DecodeAddress(destAddrStr, &chaincfg.MainNetParams)
-		if err != nil {
-			log.Fatal(err)
-		}
-		outputs := map[btcutil.Address]btcutil.Amount{
-			changeAddr: btcutil.Amount(changeAmount),
-			destAddr:   btcutil.Amount(100000),
-		}
-		rawTx, err := client.CreateRawTransaction(inputs, outputs, nil)
-		if err != nil {
-			log.Fatal(err)
-		}
-
-		// 签名交易
-		signedTx, complete, err := client.SignRawTransactionWithWallet(rawTx)
-		if err != nil {
-			log.Fatal(err)
-		}
-		if !complete {
-			log.Fatal("交易未完成签名")
-		}
-		// 发送交易
-		txHash, err := client.SendRawTransaction(signedTx, true)
-		if err != nil {
-			log.Fatal(err)
-		}
-		fmt.Printf("转账成功！交易哈希：%s\n", txHash.String())
-		return
-	}
+[signet]
+server=1
+rpcuser=user
+rpcpassword=password
+rpcallowip=0.0.0.0/0
+rpcport=8332
+```
 
 
-	log.Fatal("无法计算找零金额")
-}
+
+## 1.2 隔离见证SegWit
+对比特币进行软分叉，及对原来的块进行扩容
+![img.png](images/bitcoin隔离见证.png)
+原来只能存储1M，扩容后最大可以存储4M，后面可以进行nft存储，一个图片可以在4M以内
+
+## 1.3 闪电网络
+就是bitcoin二层网络
++ peer
++ channel
+
+peer之前的通过channel进行转账，最后将交易回传到比特币主网，即闪电网络中进行多笔交易，将最后的结果回传到主网即一笔交易
+
+## 1.4 nft--Ordinals
+1btc=10^8sat 聪
+
++ 对sat进行排序
++ 存储格式Taproot
+
+
+交易代码：https://github.com/VincentDebug/go-ord-tx  
+
+
+PSBT可以实现去中心化markplace
+
+
+## 1.5 brc-20
+brc20是借助ordinals协议铭刻json数据，只定义了部署 铸造和转账行为
+brc20代币的持有状态由链下维护
+```text
+{  
+"p": "brc-20",//Protocol: 帮助线下的记账系统识别和处理brc-20事件  
+"op": "deploy",//op 操作: 事件类型 (Deploy, Mint, Transfer)  
+"tick": "ordi", //Ticker: brc-20代币的标识符，长度为4个字母（可以是emoji） 
+"max": "21000000",//Max supply: brc-20代币的最大供应量  
+"lim": "1000"//Mint limit: 每次brc-20代币铸造量的限制}
+```
+
+需要一些indexer去支持，目前都是自己实现，官方没有  
+参考：https://github.com/unisat-wallet/libbrc20-indexer  
+
+
+## 1.6 bitvm
+
+
+## 1.7 rgb
+链下做资产转移，链上做状态变更
+
+
+## 1.8 taproot
+使用Schnorr签名和Merkle树等技术，提高比特币交易的隐私性 安全性和可扩展性
+
+
+## 1.9 stacks bitcoin二层网络
+将bitcoin锚定在自己链上，来通过获取stx自己的代币来获取bitcoin收益，不能算真正意义上的bitcoin二层网络
+只是强制将自己的链和bitcoin关联起来
+
+
+## 1.10 Discreet Log Contracts谨慎日志合约
+
++ Schnorr 签名  
+  - 基于离散对数问题的数字签名方案
+
+alice:  
+PubAi ∨ (PubB ∧ TimeDelay)  
+个人理解：  
+alcie和bob 共同生成一笔交易各自存1btc，发送到bitcoin上，取钱需要两个人的签名  
+上面的公式 PubAi = pubA + S(预言机生成的加密结果)，这个交易放在链下，等结果公布了发布到链上，如果alice赢了，他可以发送交易取回赢得，bob与其类似  
+
+
+### 1.10.1 chain.link
+
+### 1.10.2 rust-dlc
+```text
+编译sample报错openssl
+解决：
 
 ```
 
-```text
-package main
+## 1.11 Oracle预言机
 
-import (
-	"fmt"
-	"github.com/btcsuite/btcd/btcutil"
-	"github.com/btcsuite/btcd/chaincfg"
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
-	"github.com/btcsuite/btcd/rpcclient"
-	"github.com/btcsuite/btcd/txscript"
-	"github.com/btcsuite/btcd/wire"
-	"log"
-)
 
-func main() {
-	// 连接到比特币节点的RPC服务器
-	connCfg := &rpcclient.ConnConfig{
-		Host:         "127.0.0.1:8332",
-		User:         "test",
-		Pass:         "123456",
-		HTTPPostMode: true,
-		DisableTLS:   true, // 如果比特币节点未启用SSL/TLS，需要设置为true
-	}
 
-	client, err := rpcclient.New(connCfg, nil)
-	if err != nil {
-		fmt.Println("Failed to connect to the Bitcoin node:", err)
-		return
-	}
-	defer client.Shutdown()
+## 1.12 ordinals协议
 
-	sourceAddrStr := "tb1qr2ssscefkjeehv5kl0alhwj976v6cpxqlskn7n"
-	destAddrStr := "tb1qtzqjsdwskw4r52mzek7jmd609rnmtlwf4ev79g"
 
-	sourceAddr, err := btcutil.DecodeAddress(sourceAddrStr, &chaincfg.SigNetParams)
-	if err != nil {
-		log.Fatal(err)
-	}
+## 1.13 runes协议
 
-	unspentTxs, err := client.ListUnspentMinMaxAddresses(1, 9999999, []btcutil.Address{sourceAddr})
-	if err != nil {
-		log.Fatal(err)
-	}
 
-	// 创建比特币交易输入和输出
-	totalSenderAmount := btcutil.Amount(0)
-	tx := wire.NewMsgTx(wire.TxVersion)
-	for _, v := range unspentTxs {
-		inTxid, _ := chainhash.NewHashFromStr(v.TxID)
-		outpoint := wire.NewOutPoint(inTxid, v.Vout)
-		txIn := wire.NewTxIn(outpoint, nil, nil)
-		tx.AddTxIn(txIn)
-		totalSenderAmount += btcutil.Amount(v.Amount * 1e8)
-	}
 
-	// 获取目标地址的比特币脚本
-	destAddress, err := btcutil.DecodeAddress(destAddrStr, &chaincfg.SigNetParams)
-	if err != nil {
-		log.Fatal(err)
-	}
-	destinationScript, err := txscript.PayToAddrScript(destAddress)
-	if err != nil {
-		log.Fatal(err)
-	}
 
-	// 计算总金额和交易费用
-	var fee int64 = 1000
-	changeAmount := int64(totalSenderAmount) - 2000 - fee // 减去交易费用，转账2000
-
-	// 添加目标地址作为交易输出
-	tx.AddTxOut(wire.NewTxOut(2000, destinationScript))
-
-	if changeAmount > 0 {
-		// 添加找零地址作为交易输出
-		changeScript, err := txscript.PayToAddrScript(sourceAddr)
-		if err != nil {
-			log.Fatal(err)
-		}
-
-		tx.AddTxOut(wire.NewTxOut(changeAmount, changeScript))
-	}
-
-	signedTx, complete, err := client.SignRawTransactionWithWallet(tx)
-	if err != nil {
-		log.Fatal("sign tx failed", err)
-	}
-	if !complete {
-		log.Fatal("交易未完成签名")
-	}
-	// 发送交易
-	txHash, err := client.SendRawTransaction(signedTx, true)
-	if err != nil {
-		log.Fatal("send tx failed:", err)
-	}
-	fmt.Printf("转账成功！交易哈希：%s\n", txHash.String())
-	return
-}
-
-```
+## 学习资料
++ btc学习 https://www.btcstudy.org/
