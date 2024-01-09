@@ -138,6 +138,11 @@ github.com/tyler-smith/go-bip39
 
 
 
+## 9 账户抽象
+### 9.1 aa
++ https://github.com/zerodevapp/kernel
++ https://github.com/zerodevapp/sdk
++ https://github.com/eth-infinitism/account-abstraction
 
 
 
@@ -148,7 +153,6 @@ github.com/tyler-smith/go-bip39
 + rpc: https://rpc.public.zkevm-test.net  Chain ID: 1442  Currency symbol: ETH
 
 
-
 ### 10.2 goerli
 + 浏览器: https://goerli.etherscan.io/
 
@@ -157,6 +161,15 @@ github.com/tyler-smith/go-bip39
 ### 10.3 eth相关工具
 + 合约input解析在线 https://lab.miguelmota.com/ethereum-input-data-decoder/example/
 
+
+### 10.2 zkevm
++ golang node: https://github.com/0xPolygonHermez/zkevm-node
+
+#### 10.2.1 polygon zkevm执行流程
++ 视频教程：https://www.youtube.com/watch?v=VfoP9QiP-xY
+1. sequencer将多个用户的交易打包成batch提交到l1合约上--> 在合约的calldata中
+2. prover为每笔交易生成有效性证明(validity proof),并将多个交易的有效性证明聚合成一个有效性证明
+3. Aggregator提交聚合了多个交易的有效性证明(validity proof)到l1合约中
 
 ## 学习资料
 + 区块链相关视频教程 https://github.com/biquanlibai/blockchain-course
