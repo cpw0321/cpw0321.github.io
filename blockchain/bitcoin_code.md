@@ -1,5 +1,8 @@
 # 代码参考
 
+参考：
++ https://blog.vpsnode.org/bitcoin-transaction-in-go/
+
 ## 1、bitcoin
 ### 1.1、bitcoin发送交易
 ```text
@@ -211,9 +214,9 @@ func main() {
 ```
 
 
-用账户私钥去签名发送交易
 ```text
-func main66() {
+// 用账户私钥去签名发送交易
+func main() {
 	netParams := &chaincfg.SigNetParams
 	btcApiClient := mempool.NewClient(netParams)
 

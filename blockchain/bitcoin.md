@@ -46,6 +46,9 @@ rpcport=8332
 ![img.png](images/bitcoin隔离见证.png)
 原来只能存储1M，扩容后最大可以存储4M，后面可以进行nft存储，一个图片可以在4M以内
 
++ P2WSH Pay-to-Witness-Script-Hash
++ P2WPKH Pay-to-Witness-Public-Key-Hash
+
 ## 1.3 闪电网络
 就是bitcoin二层网络
 + peer
@@ -91,6 +94,20 @@ brc20代币的持有状态由链下维护
 
 ## 1.8 taproot
 使用Schnorr签名和Merkle树等技术，提高比特币交易的隐私性 安全性和可扩展性
+Taproot可以让复杂的交易(多签、时间锁)像单个比特币交易那样执行
+
+### 1.8.1 taproot升级主要内容
++ P2SH
++ MAST
++ schnorr签名
+
+#### 1.8.1.1 P2SH
+bitcoin两大标准
++ Pay-to-PubKeyHash(P2PKH) -- 公钥hash+私钥解锁UTXO
++ Pay-to-ScriptHash(P2SH) -- 提供解锁脚本解锁脚本中的UTXO
+
+
+#### 1.8.1.2 MAST默克尔抽象语法树 
 
 
 ## 1.9 stacks bitcoin二层网络
@@ -129,6 +146,14 @@ alcie和bob 共同生成一笔交易各自存1btc，发送到bitcoin上，取钱
 ## 1.13 runes协议
 
 
+## 1.14 PSBT 
+将交易拆分
+
+
+## 1.15 脚本原理
++ 脚本原理：https://happypeter.github.io/binfo/bitcoin-scripts
++ 脚本的一些例子：https://zhuanlan.zhihu.com/p/257848202
++ 脚本说明：https://github.com/tianmingyun/MasterBitcoin2CN/blob/master/ch07.md
 
 
 ## 学习资料
