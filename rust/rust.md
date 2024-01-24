@@ -229,12 +229,6 @@ async会阻塞整个线程，阻塞的future会让出线程控制权，允许其
 ![img.png](images/tokio.png) 
 
 
-### 2.13.4 pin
-钉住变量使其不能move，解决自引用问题，为异步而生
-
-### 2.14 wewb框架
-+ rocket 早期 -->tokio
-+ axum  -->tokio官方
 #### 2.13.3.1 generator
 与闭包的区别是有yield(暂停)  
 
@@ -251,6 +245,10 @@ epoll实现tcp
 
 + 事件驱动reactor
 + 跨平台抽象examples-minimio
+
+
+### 2.13.5 pin
+钉住变量使其不能move，解决自引用问题，为异步而生
 
 
 ### 2.14 wewb框架
