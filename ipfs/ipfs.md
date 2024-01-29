@@ -36,3 +36,6 @@ https://github.com/ipfs/kubo/issues/9124
 第三方网关，由于ipfs.io很难访问
 国内：https://docs.pinata.cloud/docs/getting-started
 控制台：https://app.pinata.cloud/pinmanager
+
+
+
