@@ -154,6 +154,7 @@ alcie和bob 共同生成一笔交易各自存1btc，发送到bitcoin上，取钱
 + 脚本原理：https://happypeter.github.io/binfo/bitcoin-scripts
 + 脚本的一些例子：https://zhuanlan.zhihu.com/p/257848202
 + 脚本说明：https://github.com/tianmingyun/MasterBitcoin2CN/blob/master/ch07.md
++ btc地址以及ordinals：http://defiplot.com/blog/ordinal-inscriptions-detailed-explanation/
 
 
 ## 学习资料

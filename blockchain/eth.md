@@ -171,7 +171,14 @@ github.com/tyler-smith/go-bip39
 2. prover为每笔交易生成有效性证明(validity proof),并将多个交易的有效性证明聚合成一个有效性证明
 3. Aggregator提交聚合了多个交易的有效性证明(validity proof)到l1合约中
 
+
+## 11. eth基础
+### 11.1. 基础
++ Gas Price：如果 Gas Price 设置得过低，矿工可能不愿意优先打包你的交易
++ Gas Limit：如果 Gas Limit 设置得过低，无法满足执行智能合约所需的计算资源，交易将在执行过程中耗尽 Gas，并最终失败
+
+
 ## 学习资料
 + 区块链相关视频教程 https://github.com/biquanlibai/blockchain-course
-+ btc学习 https://www.btcstudy.org/
+
 
