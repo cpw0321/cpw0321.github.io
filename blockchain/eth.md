@@ -182,3 +182,7 @@ github.com/tyler-smith/go-bip39
 + 区块链相关视频教程 https://github.com/biquanlibai/blockchain-course
 
 
+## 12. nft
++ erc721
++ erc1155
+

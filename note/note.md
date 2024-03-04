@@ -57,6 +57,10 @@ git push // 推送到B分支远程仓库
 代理  
 ```text
 https://sdyun.xyz/
+防失联发布页：sd.369.cyou
+最新官网域名：shandian.cn.com
+最新官网域名：shandian.pw
+
 https://c.binjie.fun/
 https://me.tofly.cyou/
 ```

@@ -81,52 +81,81 @@ make geth
 console 控制台交互
 
 ### 1.5搭建私链教程
-https://zhuanlan.zhihu.com/p/515941029  
+搭建dev， dev直接运行就可以，不需要genesis.json和init操作
+https://geth.ethereum.org/docs/developers/dapp-developer/dev-mode 
 
 1、初始化文件
 genesis.json
 ```text
 {
   "config": {
-        "chainId": 10,
-        "homesteadBlock": 0,
-	    "eip150Block": 0,
-        "eip155Block": 0,
-        "eip158Block": 0
-    },
-  "coinbase"   : "0x0000000000000000000000000000000000000000",
-  "difficulty" : "0x20000",
-  "extraData"  : "",
-  "gasLimit"   : "0xffffffff",
-  "nonce"      : "0x0000000000000042",
-  "mixhash"    : "0x0000000000000000000000000000000000000000000000000000000000000000",
-  "parentHash" : "0x0000000000000000000000000000000000000000000000000000000000000000",
-  "timestamp"  : "0x00",
-  "alloc"      : {}
+    "chainId": 12345,
+    "homesteadBlock": 0,
+    "eip150Block": 0,
+    "eip155Block": 0,
+    "eip158Block": 0,
+    "byzantiumBlock": 0,
+    "constantinopleBlock": 0,
+    "petersburgBlock": 0,
+    "istanbulBlock": 0,
+    "berlinBlock": 0,
+    "clique": {
+      "period": 5,
+      "epoch": 30000
+    }
+  },
+  "difficulty": "1",
+  "gasLimit": "8000000",
+  "extradata": "0x000000000000000000000000000000000000000000000000000000000000000022220a7c9510cd94e7cae9cd569de40c8b1955670000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "alloc": {
+    "22220a7c9510cd94e7cae9cd569de40c8b195567": { "balance": "300000000000000000000000" }
+  }
 }
-
 ```
+
+extradata // 这里面包含signer地址
+
+
 2、初始化命令
 ```shell
-../build/bin/geth --datadir ./data init genesis.json
+./build/bin/geth --datadir ./data init genesis.json
 ```
 
 3、启动链
 ```shell
-../build/bin/geth --datadir ./data --networkid 10 consol
-e
+# dev模式启动
+./build/bin/geth --dev --http --http.port 8545 --http.addr 0.0.0.0 --http.api personal,eth,net,web3,txpool,debug --http.corsdomain '*'  --ws --ws.addr 0.0.0.0 --ws.port 8546 console 2>geth.log
+
 ```
 
 4、常用命令
 ```shell
+# 查看chainID
+net.version  // chainID不对，部署合约会报错Served eth_sendRawTransaction err="invalid sender
+
 #新建账户
-personal.newAccount()
+personal.newAccount()  // 废弃了 --rpc.enabledeprecatedpersonal 可以开启
+./build/bin/geth --datadir ./data account new   // 创建账户密码为空就行
 
 #查看账户
 eth.accouts
 
 #查看余额
-eth.getBalance(eth.accouts[0])
+eth.getBalance(eth.accounts[0])
+eth.getBalance(eth.coinbase)/1e18
+
+#设置旷工地址
+miner.setEtherbase("0x255843d997dfffb130bdfe73d2c34322f4500623")
+
+#查看旷工
+eth.coinbase
+
+#转账
+eth.sendTransaction({from: eth.coinbase, to: "0x22220a7C9510cd94e7cAE9CD569dE40C8B195567", value: web3.toWei(50, "ether")})
+
 ```
+
+### 1.6. 搭建浏览器
+#### 1.6.1. blockscout
 
 

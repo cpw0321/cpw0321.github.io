@@ -182,3 +182,12 @@ https://learnblockchain.cn/article/2920
 
 ### 5.2、 golang调用合约方法
 https://learnblockchain.cn/article/6220  
+
+
+## 6. EIP
+eip--以太坊改进建议  
+erc--以太坊意见征求稿  
+eip包含erc
+### 6.1. erc
++ erc165: 声明支持的接口
++ erc721: nft

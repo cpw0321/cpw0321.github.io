@@ -36,5 +36,25 @@
 	- mintscan
 	- ping.pub(国内)
 	- ...
+
+
+## 4. 命令
+```bash
+// 查看mykey
+ethermintd keys show mykey
+
+// 导出mykey
+ethermintd keys unsafe-export-eth-key mykey
+
+// 转账
+ethermintd tx bank send mykey "ethm1ap0tm47kyucz..." 200000000000000aphoton --gas-prices=1000000aphoton
+
+// 查询余额
+ethermintd query bank balances ethm1ap0tm47kyucz...
+```
+
+
+
+
 ## 资料
 + 视频教程：https://www.bilibili.com/video/BV1HN4y1q7Fi/?spm_id_from=333.880.my_history.page.click&vd_source=9a6776332c8894a5253390cd88bdf876

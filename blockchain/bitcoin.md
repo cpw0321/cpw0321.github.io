@@ -141,7 +141,8 @@ alcie和bob 共同生成一笔交易各自存1btc，发送到bitcoin上，取钱
 
 
 ## 1.12 ordinals协议
-
+链上的一笔交易：
+https://mempool.space/zh/tx/cee1201a981420aecf125917a2a8a14544fbf70b926c0e5f6d58db363db1a605
 
 ## 1.13 runes协议
 
