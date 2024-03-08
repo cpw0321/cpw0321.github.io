@@ -348,7 +348,7 @@ uber团队实现的开源的分布式追踪系统，基于openTracing标准
 ## 5 资料
 ### 5.1 书
 + https://course.rs/  
-+ https://kaisery.github.io/
++ https://kaisery.github.io/trpl-zh-cn/ch06-03-if-let.html
 
 
 

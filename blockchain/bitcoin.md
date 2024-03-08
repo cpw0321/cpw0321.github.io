@@ -78,7 +78,8 @@ brc20代币的持有状态由链下维护
 "op": "deploy",//op 操作: 事件类型 (Deploy, Mint, Transfer)  
 "tick": "ordi", //Ticker: brc-20代币的标识符，长度为4个字母（可以是emoji） 
 "max": "21000000",//Max supply: brc-20代币的最大供应量  
-"lim": "1000"//Mint limit: 每次brc-20代币铸造量的限制}
+"lim": "1000"//Mint limit: 每次brc-20代币铸造量的限制
+}
 ```
 
 需要一些indexer去支持，目前都是自己实现，官方没有  
@@ -157,6 +158,11 @@ https://mempool.space/zh/tx/cee1201a981420aecf125917a2a8a14544fbf70b926c0e5f6d58
 + 脚本说明：https://github.com/tianmingyun/MasterBitcoin2CN/blob/master/ch07.md
 + btc地址以及ordinals：http://defiplot.com/blog/ordinal-inscriptions-detailed-explanation/
 
+## 1.16. btc地址生成
++ https://mirror.xyz/imsongoku.eth/-aMTAIyj8X25QQ2cZf9uvuwTU8uD6CjlpRwGc2AuT3E
+
+## 1.17. OP_RETURN
++ 参考代码：https://gist.github.com/ryandotsmith/e9b82473994c8b7bc0fc
 
 ## 学习资料
 + btc学习 https://www.btcstudy.org/

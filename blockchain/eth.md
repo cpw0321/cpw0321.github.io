@@ -176,13 +176,28 @@ github.com/tyler-smith/go-bip39
 ### 11.1. 基础
 + Gas Price：如果 Gas Price 设置得过低，矿工可能不愿意优先打包你的交易
 + Gas Limit：如果 Gas Limit 设置得过低，无法满足执行智能合约所需的计算资源，交易将在执行过程中耗尽 Gas，并最终失败
-
-
-## 学习资料
-+ 区块链相关视频教程 https://github.com/biquanlibai/blockchain-course
+交易手续费 = gas * gaslimit  
 
 
 ## 12. nft
 + erc721
 + erc1155
 
+
+## 13. 
++ eip-1559 早期的gas
++ eip-4844 最新的gas
+
+
+## 学习资料
++ 区块链相关视频教程 https://github.com/biquanlibai/blockchain-course
+
+## 节点工具
++ infura.io
++ thegraph.com
++ nft.storage
+
+## ipfs相关的uri
+https://ipfs.io/ipfs/bafyreigyhfclajiatueanhu5pexpwyakpogltngsgplfrak54zuzdhydcq/metadata.json
+https://ipfs.io/ipfs/QmeSjSinHpPnmXmspMjwiXyN6zS4E9zccariGR3jxcaWtq/
+https://ipfs.io/ipfs/QmTecK6aZLBteHcx7zP7jCgWELFwkPPgF4aWBJmB7RJnDg/
