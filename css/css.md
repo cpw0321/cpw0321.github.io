@@ -44,3 +44,20 @@ transition: all 0.3s ease-in-out; // 元素被设置为当任何属性发生变�
 }
 
 ```
+
++ padding 元素内部内容与边框之间的间距-- 内边距
+```css
+.element {
+    padding: 10px 15px 20px 25px; /* 顶、右、底、左 方向分别为 10px, 15px, 20px, 25px */
+}
+```
+
++ margin 外边距
+
++ cursor 用于指定当鼠标悬停在元素上时，鼠标指针的形状
+
+```css
+.element {
+    cursor: pointer; // 鼠标指针形状会变为手型
+}
+```
