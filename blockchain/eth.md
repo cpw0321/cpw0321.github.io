@@ -193,9 +193,11 @@ github.com/tyler-smith/go-bip39
 + 区块链相关视频教程 https://github.com/biquanlibai/blockchain-course
 
 ## 节点工具
-+ infura.io
-+ thegraph.com
-+ nft.storage
++ infura.io --> 提供开发的api
++ thegraph.com --> 检索和查询以太坊的区块链
++ nft.storage --> 免费使用ipfs
++ alchemy.com --> 开发工具， 比如polygon-rpc节点
++ vercel.com --> 在线托管你的程序
 
 ## ipfs相关的uri
 https://ipfs.io/ipfs/bafyreigyhfclajiatueanhu5pexpwyakpogltngsgplfrak54zuzdhydcq/metadata.json

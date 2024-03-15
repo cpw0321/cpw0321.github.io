@@ -28,3 +28,12 @@ export default MyComponent;
 
 ## 1.2. 快捷指令
 + racfe 生成component代码块
+
+
+## 1.3. 错误
+
++ If you need interactivity, consider converting part of this to a Client Component.     at stringify (<anonymous>) digest: "4011066402" 原因
+
+解决办法：  
+文件开头添加 'use client'  
+参考：https://blog.csdn.net/tianlangstudio/article/details/127989643

@@ -292,6 +292,16 @@ protoc -I ../../../  -I ./ --go_out=plugins=grpc:. $proto
 新版本 google.golang.org/protobuf/ 不再支持生成 gRPC 服务定义，如果想要生成grpc代码需要使用新插件protoc-gen-go-grpc。  
 plugins参数 是旧版本，新版本已弃用。新版本方法是 --go-grpc_out=。这里我们使用新版本。  
 
++ 生成swagger
+```go
+go install github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
+
+```
+
++ grpc-gateway 
+```go
+go install github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway 
+```
 
 
 ### 7、gorm

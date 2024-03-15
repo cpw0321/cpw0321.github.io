@@ -75,3 +75,10 @@ npm i nodemon -g // g 全局安装会安装到 ~/.node中
 #### 1.3.3 session与jwt
 session适合于前端渲染
 
+
+### 工具包
++ Morgan 是一个 HTTP 请求级别的中间件。它是一个伟大的工具，根据其配置和预设，记录请求以及其他一些信息。调试时非常有帮助，也可以用来创建日志文件
+
++ express -- json app.use(experss.json())
+
++ nodemon 热加载

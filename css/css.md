@@ -61,3 +61,19 @@ transition: all 0.3s ease-in-out; // 元素被设置为当任何属性发生变�
     cursor: pointer; // 鼠标指针形状会变为手型
 }
 ```
+
++ align-items: flex-start; 是一个 CSS 样式属性，用于设置 Flex 容器中项目（Flex 子元素）在交叉轴（垂直于主轴）上的对齐方式为起点（flex-start）。
+
+
++ overflow: auto;：根据需要显示滚动条，如果内容未溢出，则不显示滚动条
+
++ hover 选择器用于选择鼠标指针浮动在上面的元素，它适用于所有元素
+```css
+// 盒子出现阴影
+.sliderCard_box:hover{
+    box-shadow: var(--box-shadow);
+}
+```
+
++ grid-column: 1 / -1; 表示该项目横跨从第一条垂直网格线到最后一条垂直网格线的所有列。
++ grid-row: 1 / -1; 表示该项目纵跨从第一条水平网格线到最后一条水平网格线的所有行

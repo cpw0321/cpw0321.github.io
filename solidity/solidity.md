@@ -155,7 +155,10 @@ npx hardhat compile
 npx hardhat test
 
 # 部署 scripts
-npx hardhat run scripts/TokenDeploy.js --network hecoTest
+npx hardhat run scripts/TokenDeploy.js --network localhost
+
+# 本地生成账户
+npx hardhat node
 
 ```
 
