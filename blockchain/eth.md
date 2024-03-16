@@ -198,6 +198,7 @@ github.com/tyler-smith/go-bip39
 + nft.storage --> 免费使用ipfs
 + alchemy.com --> 开发工具， 比如polygon-rpc节点
 + vercel.com --> 在线托管你的程序
++ netlify.app --> 在线静态资源托管
 
 ## ipfs相关的uri
 https://ipfs.io/ipfs/bafyreigyhfclajiatueanhu5pexpwyakpogltngsgplfrak54zuzdhydcq/metadata.json
