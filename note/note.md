@@ -119,3 +119,8 @@ readthedocs.org/
 
 ## 6. 浏览器相关
 + 控制视频播放速度：document.querySelector('video').playbackRate=2
+
+
+## 7.0 查看自己的公网ip
++ curl ifconfig.me
++ curl ipinfo.io/ip

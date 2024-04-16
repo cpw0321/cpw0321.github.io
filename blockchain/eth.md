@@ -198,8 +198,44 @@ github.com/tyler-smith/go-bip39
 + nft.storage --> 免费使用ipfs
 + alchemy.com --> 开发工具， 比如polygon-rpc节点
 + vercel.com --> 在线托管你的程序
++ chainlist.org --> 链节点
 
 ## ipfs相关的uri
 https://ipfs.io/ipfs/bafyreigyhfclajiatueanhu5pexpwyakpogltngsgplfrak54zuzdhydcq/metadata.json
 https://ipfs.io/ipfs/QmeSjSinHpPnmXmspMjwiXyN6zS4E9zccariGR3jxcaWtq/
 https://ipfs.io/ipfs/QmTecK6aZLBteHcx7zP7jCgWELFwkPPgF4aWBJmB7RJnDg/
+
+
+### js 查询事件
+ ```text
+     const events = await instance.queryFilter(instance.filters.DepositEventV1(null, null));
+    const eventHash = events[0].topics[0];
+    console.log("Deposit Event hash:", eventHash);
+```
+
+ // 根据块区间查询
+ ```text
+     // SimpleBridge
+    const SimpleBridge = await ethers.getContractFactory("Locker");
+    const instance = await SimpleBridge.attach(bridgeAddress);
+
+    // let tx = await instance.release("0x756A6aa43547fA8cCF02ab417E6c4c4747137346", [27]);;
+    // const res = await tx.wait(1);
+
+    const filter = {
+        address: bridgeAddress,
+        fromBlock: 20614155,
+        toBlock: 20614155,
+        topics: instance.filters.releaseEvent(null, null).topics
+    };
+    const provider = ethers.provider;
+    const logs = await provider.getLogs(filter);
+
+    // 解析日志数据
+    const parsedLogs = logs.map(log => instance.interface.parseLog(log));
+
+    // 输出解析后的日志数据
+    console.log("Release Events in block:", parsedLogs);
+
+ ```
+ 

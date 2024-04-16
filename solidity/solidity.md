@@ -194,3 +194,31 @@ eip包含erc
 ### 6.1. erc
 + erc165: 声明支持的接口
 + erc721: nft
+
+
+## 7. Foundry 
++ 教程：https://learnblockchain.cn/docs/foundry/i18n/zh/getting-started/first-steps.html
++ 教程：https://docs.moonbeam.network/cn/builders/build/eth-api/dev-env/foundry/
+
+### 7.1. Manual deployment
+```bash
+# 1. Install Foundry
+curl -L https://foundry.paradigm.xyz | bash
+foundryup
+
+# 2. Deploy Multicall3
+$ forge create --rpc-url <your_rpc_url> \
+--private-key <your_private_key> \
+--gas-price 2500000000 \
+src/Multicall3.sol:Multicall3
+
+# 3. Call Multicall3 getChainId method
+cast call <multicall3_address> "getChainId()" --rpc-url <your_rpc_url> 
+```
+
+
+## 问题
++ call与transfer区别
+  transfer gas是固定的消耗完可能失败
+
+
