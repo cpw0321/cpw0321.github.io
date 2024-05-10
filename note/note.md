@@ -52,6 +52,10 @@ git push // 推送到B分支远程仓库
 + git checkout -b 本地分支名 origin/远程分支名
 
 
+打tag
+git tag v1.0.0
+git push origin v1.0.0
+
 
 ## 2、网站
 代理  

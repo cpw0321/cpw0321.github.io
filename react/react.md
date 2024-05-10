@@ -68,3 +68,16 @@ function MyComponent() {
 }
  
 export default MyComponent
+
+
+
+
++ .js中不提示div标签解决办法
+
+https://blog.csdn.net/a232884c/article/details/125351290
+
+
+## 1.5 一些包
++ framer-motion 动画库
++ react-dom dom交互
++ react-dropzone 文件拖放组件

@@ -51,6 +51,7 @@ docker run --name elasticsearch -p 9200:9200 -p 9300:9300 \
 docker pull mobz/elasticsearch-head:5
 docker run --name es-head -p 9100:9100 --restart=always -d mobz/elasticsearch-head:5
 ```
+
 + 问题：  
 4.1、无法新建索引报406错误，协议不支持  
 
