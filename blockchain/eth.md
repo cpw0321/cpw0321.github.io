@@ -184,10 +184,16 @@ github.com/tyler-smith/go-bip39
 + erc1155
 
 
-## 13. 
+## 13. 协议
 + eip-1559 早期的gas
 + eip-4844 最新的gas
 
+
+## staking
++ pos(Proof of stake) 权益证明
++ lsd(liquid staking dericatives) 流动性质押
++ staking/restaking
++ avs(actively validated services) 主动验证服务
 
 ## 学习资料
 + 区块链相关视频教程 https://github.com/biquanlibai/blockchain-course

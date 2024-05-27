@@ -17,9 +17,10 @@ npm install react-icons
 
 
 ## 参考
-+ https://github.com/0xabdou/nft-marketplace/blob/main/test/index.ts
++ 测试用例: https://github.com/0xabdou/nft-marketplace/blob/main/test/index.ts
 + https://github.com/daulathussain
 + 合约: https://github.com/0xabdou/nft-marketplace
++ js-api: https://github.com/daulathussain/api-part-0ne
 
 
 

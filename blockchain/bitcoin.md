@@ -164,5 +164,8 @@ https://mempool.space/zh/tx/cee1201a981420aecf125917a2a8a14544fbf70b926c0e5f6d58
 ## 1.17. OP_RETURN
 + 参考代码：https://gist.github.com/ryandotsmith/e9b82473994c8b7bc0fc
 
+## 1.18. 未解决概念
++ 门限签名，私钥分片 mpc + tss
+
 ## 学习资料
 + btc学习 https://www.btcstudy.org/
