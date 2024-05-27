@@ -37,3 +37,47 @@ export default MyComponent;
 解决办法：  
 文件开头添加 'use client'  
 参考：https://blog.csdn.net/tianlangstudio/article/details/127989643
+
+
+
+## 1.4. 问题
+
++ Next.js的Image组件在与div元素重叠时会调整大小 如何解决处理
+
+layout属性有以下几个值可以选择：
+fixed: 固定宽度和高度。
+intrinsic: 根据自然宽度和高度缩放。
+responsive: 根据父容器缩放。
+fill: 使用图片最大尺寸
+
+import Image from 'next/image'
+ 
+function MyComponent() {
+  return (
+    <div>
+      <Image
+        src="/example.jpg"
+        alt="Example Image"
+        width={500}
+        height={500}
+        layout="responsive" // 或者 "fixed" 根据需求选择
+      />
+      <div>其他内容</div>
+    </div>
+  )
+}
+ 
+export default MyComponent
+
+
+
+
++ .js中不提示div标签解决办法
+
+https://blog.csdn.net/a232884c/article/details/125351290
+
+
+## 1.5 一些包
++ framer-motion 动画库
++ react-dom dom交互
++ react-dropzone 文件拖放组件

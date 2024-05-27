@@ -1,0 +1,24 @@
+@startuml
+'https://plantuml.com/deployment-diagram
+
+title 数据处理主流程图
+
+participant api
+participant mq
+participant worker
+participant sender
+participant listener
+
+api -> mq : 携带msg_id发送处理消息至队列
+mq -> worker : 消费队列消息(status = submit)
+worker -> worker : handler消费业务队列消息
+worker -> worker : 调用合约
+worker -> worker : 更新业务状态(status = pending)
+listener -> listener: 同步链上区块数据
+listener -> listener: 监听合约事件
+listener -> mq: 待处理合约事件发送至消息队列(event表)
+worker -> worker : consume消费合约事件队列消息
+worker -> worker : 处理相应合约事件业务
+worker -> worker : 更新交易状态(status = success)
+
+@enduml
