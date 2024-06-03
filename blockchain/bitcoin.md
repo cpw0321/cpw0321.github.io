@@ -14,6 +14,8 @@
 + 测试网络水龙头
   - https://coinfaucet.eu/en/btc-testnet/
   - https://signetfaucet.com/  signet网络的
+  - https://signetfaucet.bublina.eu.org/
+  - https://faucet.tomo.inc/home
 
 + 浏览器
   - https://mempool.space/
