@@ -29,7 +29,7 @@ Layer2相关技术：
 代表性的layer2:
 + Arbitrum
 + Optimism
-+ Polygon（项目选型）
++ Polygon（项目选型） 基于zkevm
 + zkSync
 
 #### 2.2.1 layer2出现的目的  
@@ -267,9 +267,14 @@ https://ipfs.io/ipfs/QmTecK6aZLBteHcx7zP7jCgWELFwkPPgF4aWBJmB7RJnDg/
 
 
 
+原理：
++ userOperation --> Bundle --> entryPoint
 
+![img.png](images/aa工作原理.png)
 
++ Account Factory Contracts
 
++ 大家都在使用：https://github.com/eth-infinitism/account-abstraction 
 
 
 
