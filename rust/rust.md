@@ -29,6 +29,7 @@ rustup override set 1.52.0
 ```
 
 ## 2 基础语法
+cargo install xx --locked 安装时会根据Cargo.lock中的版本而不是Cargo.toml中的版本
 ### 2.1  ->
 return 数据类型
 

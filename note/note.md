@@ -57,6 +57,8 @@ git tag v1.0.0
 git push origin v1.0.0
 
 
+![img.png](images/github合代码设置.png)
+
 ## 2、网站
 代理  
 ```text
