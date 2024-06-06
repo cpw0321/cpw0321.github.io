@@ -137,6 +137,53 @@ function getString2(uint256 _number) public pure returns(string memory){
 签名参考：https://learnblockchain.cn/article/5012
 
 
+#### 1.2.12 工厂合约
+工厂合约相当于自定义了一个类，将该类放入数据，其实就是数组
+new FactoryClass(name)
+
+
+#### 1.2.13 fallback回退函数
+一般用于函数内部的捕获
+
+
+#### 1.2.14 哈希
+keccak256() 相当于md5
+abi.encodePacked abi编码类似json
+
+
+#### 1.2.15 call
+
+address.call{value:0}() // 写
+address.staticcall() // 读
+
+call与staticcall区别就是会不会触发状态改变，前者改变后者不改变
+
+#### 1.2.16 签名验证
+
+1、内容进行keccak256() byte32  
+2、通过当前账户对步骤1结果（含有以太坊签名的前缀字符串，bytes memory prefix = "\x19Ethereum Signed Message:\n32";）签名  
+3、通过（含有签名前缀字符串）ETH哈希(步骤2的值) + 签名结果  还原账户address  
+4、验证签名 原始内容 + 签名结果 + 账户address 校验签名是否为address
+
+#### 1.2.17 muticall
+一个合约里面同时调用其他两个合约方法
+
+#### 1.2.18 create2 合约地址生成算法
+
+bytes memory packed = abi.encodePacked(
+  uint8(0xff), // 255
+  address(this),
+  salt, // byte32
+  keccak256(creationCode) // byte32  type(合约名称)。creationCode
+)
+
+byte32 hash = keccak256(packde)
+address newAddress = address(uint160(uint(hash)))
+
+#### 1.2.19 
+
+---------------------------------
+
 ## 2、hardhat
 ## 2.1、介绍
 官网：https://hardhat.org/  
