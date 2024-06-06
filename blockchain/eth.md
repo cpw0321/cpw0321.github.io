@@ -151,7 +151,7 @@ github.com/tyler-smith/go-bip39
 
 两种类型账户：  
 + eoa 用户控制的账户， 外部拥有的账户(externally owned accounts)
-+ 合约账户 contract accoun(ca)
++ 合约账户 contract account(ca)
 
 实战：
 + stackup-wallet
