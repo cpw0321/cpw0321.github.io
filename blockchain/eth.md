@@ -9,8 +9,6 @@
 github: https://github.com/maticnetwork/  
 
 
-
-
 ## 2 以太坊
 ### 2.1 分片与Layer2
 1 解决以太坊交易性能问题  
@@ -27,12 +25,12 @@ Layer2相关技术：
     - 有效性证明（Validity Proof）
 
 代表性的layer2:
-+ Arbitrum
++ Arbitrum  -- optimistic rollup
 + Optimism
 + Polygon（项目选型） 基于zkevm
 + zkSync
 
-#### 2.2.1 layer2出现的目的  
+### 2.3 layer2出现的目的  
 太坊公链的工作效率低下，把一些以太坊上的交易移到Layer 2上去处理，处理完成以后再把结果返回给Layer 1，这样layer 1就没这么忙了。  
 
 ## 3 Solana链
@@ -139,12 +137,43 @@ github.com/tyler-smith/go-bip39
 
 
 ## 9 账户抽象
-### 9.1 aa
+### 9.1. aa
 + https://github.com/zerodevapp/kernel
 + https://github.com/zerodevapp/sdk
 + https://github.com/eth-infinitism/account-abstraction
 
 
+### 9.2. erc4337
+
++ 账户抽象 
+
+作用：用户可以无gas使用账户，比如，A用户可以通过aa合约调用eth上的合约，实际就是aa合约调用eth合约
+
+两种类型账户：  
++ eoa 用户控制的账户， 外部拥有的账户(externally owned accounts)
++ 合约账户 contract accoun(ca)
+
+实战：
++ stackup-wallet
+
+
+
+原理：
++ userOperation --> Bundle --> entryPoint
+
+![img.png](images/aa工作原理.png)
+
+![img.png](images/erc4337概念.png)
+
+![img.png](images/erc4337交易逻辑.png)
+
++ Account Factory Contracts
+
++ 大家都在使用：https://github.com/eth-infinitism/account-abstraction 
+
+
++ mpc 多方计算 私钥被分散成更小的碎片，一起签署交易
++ multiSig 多签，多个私钥签名
 
 ## 10 eth相关的链
 ### 10.1 polygon
@@ -250,31 +279,6 @@ https://ipfs.io/ipfs/QmTecK6aZLBteHcx7zP7jCgWELFwkPPgF4aWBJmB7RJnDg/
 ## 14 evm原理
 ![img.png](images/evm原理.png)
 
-
-
-## 15. erc4337
-
-+ 账户抽象 c
-
-作用：用户可以无gas使用账户，比如，A用户可以通过aa合约调用eth上的合约，实际就是aa合约调用eth合约
-
-两种类型账户：  
-+ eoa 用户控制的账户， 外部拥有的账户(externally owned accounts)
-+ 合约账户 contract accoun(ca)
-
-实战：
-+ stackup-wallet
-
-
-
-原理：
-+ userOperation --> Bundle --> entryPoint
-
-![img.png](images/aa工作原理.png)
-
-+ Account Factory Contracts
-
-+ 大家都在使用：https://github.com/eth-infinitism/account-abstraction 
 
 
 
