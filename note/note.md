@@ -34,6 +34,9 @@ git remote add origin xxx.com/demo.git
 // 更新main源下的信息包括新的分支
 git remote update main 
 
+// 合并其他分支的commit
+git cherry-pick commitID
+
 
 
 ### 1.3、git合并单个commit到指定的分支上
