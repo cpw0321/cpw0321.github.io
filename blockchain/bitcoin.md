@@ -148,10 +148,13 @@ alcie和bob 共同生成一笔交易各自存1btc，发送到bitcoin上，取钱
 https://mempool.space/zh/tx/cee1201a981420aecf125917a2a8a14544fbf70b926c0e5f6d58db363db1a605
 
 ## 1.13 runes协议
+符文  
+ordinals+brc-20  其实是将铭刻的字段放在op_return中执行的  
+
 
 
 ## 1.14 PSBT 
-将交易拆分
+将交易拆分，成txin, txout可以理解为json序列化成响应的结构
 
 
 ## 1.15 脚本原理
@@ -168,6 +171,11 @@ https://mempool.space/zh/tx/cee1201a981420aecf125917a2a8a14544fbf70b926c0e5f6d58
 
 ## 1.18. 未解决概念
 + 门限签名，私钥分片 mpc + tss
+	- 门限就是3个人中需要2个人同意
+	- 私钥分片就是一个私钥分成3部分由三个人分别保管
+
+## 1.19. btc交易加速网站
++ https://www.dotswap.app/
 
 ## 学习资料
 + btc学习 https://www.btcstudy.org/
