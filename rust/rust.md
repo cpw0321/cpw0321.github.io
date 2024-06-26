@@ -71,6 +71,7 @@ impl From<&str> for XXX {}
 #[allow(dead_code)] 
 
 // PartialEq trait 用于比较两个值是否相等，通常用于测试和数据处理过程中的判断
+// Eq 是 PartialEq 的一个子trait，它没有提供额外的方法，而是要求类型必须能够实现 PartialEq 并满足更强的条件
 #[drive(Debug, PartialEq)] 
 assert_eq!(person1, person2);
 ```
@@ -222,6 +223,7 @@ async会阻塞整个线程，阻塞的future会让出线程控制权，允许其
 
 
 #### 2.13.2 async/await
+实现了类似多线程的效果，实际就是实现了futures，线程遇见阻塞时会先去执行其他的的当不阻塞的在继续执行  
 
 
 

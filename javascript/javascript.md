@@ -50,3 +50,5 @@ document.querySelector('video').playbackRate=3
 ## 资料
 + 谷歌插件教程: https://xieyufei.com/2021/11/09/Chrome-Plugin.html#%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E5%B0%8F%E6%8F%92%E4%BB%B6`
 
++ 获取假数据json: https://dummyjson.com/
+
