@@ -147,6 +147,11 @@ fn main(){
 }
 ```
 
+
+#### 2.9.5 字符串
++ String 可变、拥有所有权的字符串类型
++ &str 不可变字符串切片类型
+
 ### 2.10 错误处理
 unwrap -> result/match -> 自定义错误（重写source）+ From转换  
 
