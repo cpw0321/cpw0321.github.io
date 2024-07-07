@@ -7,6 +7,8 @@
 
 + 钱包: Phantom
 
+1sol = 10^9 lamports
+
 
 ### 1.1.2. 智能合约
 
