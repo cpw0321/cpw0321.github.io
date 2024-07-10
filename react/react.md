@@ -2,7 +2,10 @@
 
 ## 1. 语法
 
-### 1.1 
+### 快捷指令
++ racfe 生成component代码块
+
+### 1.1. useState
 + 自定义hooks  useState  
 + context --> 中属性任何一个改变都会引起子组件重新渲染
 + useReducer --> 解决上面问题
@@ -26,9 +29,39 @@ function MyComponent() {
 export default MyComponent;
 ```
 
-## 1.2. 快捷指令
-+ racfe 生成component代码块
+### 1.2. useRef 获取dom对象
++ 获取dom对象
+const inputRef = useRef(null)
+<input type="text" ref={inputRef}>
 
+### 1.3. props父传子
++ 父传子
++ 只读
+
++ 子传父 --> 子组件调用父组件中的函数
+
+
+### 1.4. context 跨层通信
+App->A->B App数据传到B
+1、createContext创建Ctx对象
+2、顶层（App）通过Ctx Provider提供数据
+3、底层组件（B）useContext获取数据
+
+
+### 1.5. useEffect
++ 没有依赖项-->初始+组件更新
++ 空数组-->初始执行一次
++ 特定依赖项-->初始+依赖变化
+
+清除副作用，比如useEffect中有个定时函数,卸载组件时要清除
+useEffect(() = > {
+  renturn() =>{
+    // 清除逻辑副作用
+  }
+}, [])
+
+
+### 1.6. 自定义hook
 
 ## 1.3. 错误
 

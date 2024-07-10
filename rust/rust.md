@@ -318,6 +318,18 @@ Drop trait --> 拥有内存自动管理机制
 + late bound
 
 
+### 2.19 channel
++ mpsc 多个生产者，一个消费者
++ spmc 一个生产者，多个消费者
+
+
+### 2.20. send sync trait
++ send 允许线程间转移
+  大部分类型可以，Rc<T>不行
++ sync 允许多线程访问
+  Rc<T> Cell<T> RefCell<T>不是(非线程安全)  Mutex<T> 是
+
+
 ## 3 编辑器
 ### 3.1 vscode
 #### 3.1.插件
