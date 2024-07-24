@@ -1,5 +1,19 @@
 # ai
 
+## 术语解释
++ 大模型（Large Models）：
+
+大模型通常指的是参数数量庞大、计算能力强大的深度学习模型。这些模型可以有数十亿到数百亿个参数，通常用于处理复杂的自然语言理解、机器翻译、图像处理等任务。这些模型的训练需要大量的计算资源和数据，并且能够捕捉更复杂的数据模式和语义信息。
+
++ 微调（Fine-tuning）：
+
+微调是指在已经预训练好的大模型的基础上，使用少量目标领域特定的数据进行进一步训练，以适应特定任务或应用场景。通常，预训练模型是在大规模通用数据上进行训练的，而微调则是为了使模型能够更好地适应特定任务的数据分布和特征。
+
++ 量化（Quantization）：
+
+量化是指将深度学习模型中的浮点参数和计算转换为更低精度的表示形式，例如整数或定点数。目的是通过减少模型中参数和计算的精度来减少计算和存储的需求，从而提高模型的效率和运行速度。量化可以在训练后应用于模型，也可以在训练期间用于优化计算过程
+
+
 ## 1. 基础
 
 ### 1.1. transfermer（神经网络中的一个分支, 训练模型）
@@ -148,10 +162,40 @@ encoding= tiktoken.encoding_for_modle('gpt-3.5-turbo')
 ### RAG 检索增强
 Retrieval Augmented Generation ，意为检索增强生成
 
+通过引入外部知识库检索机制，提升生成内容的准确性、相关性和时效性
 
 ### agent
 做决策使用
+可以理解为大模型上开发的各种插件和应用
 
+字节的coze 配置都在云上，无法私有嵌入你的本地，自己玩一玩可以
+autogpt/metagpt/langchain 程序员开发框架
+autogenStudio 微软的开源的适合业务人员不懂代码的构建自己的知识库
+
+
++ sora 生成视频
+
+
+### GraphRAG
+知识图谱
+
+比如：获取技术部们去年的成果
+海量数据--> llm --> 知识图谱 --> 社区挖掘 --> 总结汇总
+
+
+----------------------
+## LLM
+
+### 微调
++ 全量微调：全部指令改动
++ PEFT： 
+	- LoRA：去掉冗余的指令，对精简后的指令微调
+
+大模型输入问题的token会猜测下一个单词，从当前单词中选一个继续推测下一个单词，所以是一点点输出
+
+### 参数
++ top K 假如k=3，取概率最大的前三个token,筛选掉大部分token
++ top P 一个概率的阈值，当选出来的token加起来的概率小于p值可以继续增加token
 
 
 ----------------------
@@ -165,11 +209,12 @@ Retrieval Augmented Generation ，意为检索增强生成
 
 
 
+
+
 #### 实战
 ```python
 # 安装
 pip3 install langchain
-
 
 ```
 
@@ -185,16 +230,54 @@ go开发本地大语言模型运行框架
 
 
 资料：
-+ 教程（非常好）：https://github.com/DjangoPeng/openai-quickstart
 
-+ 个人简单笔记 https://wiki.eryajf.net/pages/97047e/#%E5%89%8D%E8%A8%80
-+ langchain总结 https://langchain114.com/docs/use_cases/summarization/
+文档类：
++ [高] langchain使用指南，简单 https://www.tizi365.com/topic/2539.html
++ [高] 谷歌收费课件，了解ai+实战代码 https://github.com/DjangoPeng/openai-quickstart
 
-+ 一个基于grop+Llama3生成书籍的 https://github.com/Bklieger/groqbook 
++ [中] 个人开发者笔记，langchian教程，有一些使用例子 + langchain教程 https://liaokong.gitbook.io/llm-kai-fa-jiao-cheng#chain-lian
++ [中] langchain总结 https://langchain114.com/docs/use_cases/summarization/
+
++ [低]个人开发者langchain学习笔记 https://juejin.cn/user/3125246096841600/posts
 
 
-+ 一个实现：https://github.com/CopilotKit/CopilotKit  
+代码类：
++ [高] nextjs写的开源的ai前端聊天界面 https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web
 
-+ 别人的langchain学习笔记 https://juejin.cn/user/3125246096841600/posts
-+ langchain教程 https://liaokong.gitbook.io/llm-kai-fa-jiao-cheng#chain-lian
+
++ [低]参考类项目，一个基于grop+Llama3生成书籍的 https://github.com/Bklieger/groqbook 
+
+
+视频类：
++ [高] ai老兵，简单的话普及ai知识: https://www.bilibili.com/video/BV1tthPeFEWb/?p=3&spm_id_from=pageDriver
+
+
++ [中]详细的解释什么是RAG: https://www.bilibili.com/video/BV1Vj421Z7UP/?spm_id_from=pageDriver&vd_source=9a6776332c8894a5253390cd88bdf876
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+需要看的视频教程：
++ langchain rag https://bilibili.com/video/BV1Cp421R7Y7/?spm_id_from=333.337.search-card.all.click&vd_source=9a6776332c8894a5253390cd88bdf876
++ 搭建自己的rag https://www.bilibili.com/video/BV1Sb421n7to/?spm_id_from=333.337.search-card.all.click&vd_source=9a6776332c8894a5253390cd88bdf876
+
++ 博主： https://space.bilibili.com/3537115180698587
++ RAG简单解释： https://space.bilibili.com/472543316/video
+
 
