@@ -14,6 +14,46 @@
 量化是指将深度学习模型中的浮点参数和计算转换为更低精度的表示形式，例如整数或定点数。目的是通过减少模型中参数和计算的精度来减少计算和存储的需求，从而提高模型的效率和运行速度。量化可以在训练后应用于模型，也可以在训练期间用于优化计算过程
 
 
+---------------------------
+## agent
+做决策使用
+可以理解为大模型上开发的各种插件和应用
+
+字节的coze 配置都在云上，无法私有嵌入你的本地，自己玩一玩可以
+autogpt/metagpt/langchain 程序员开发框架
+autogenStudio 微软的开源的适合业务人员不懂代码的构建自己的知识库
+
+
++ sora 生成视频
+
+---------------------------
+## RAG 检索增强
+Retrieval Augmented Generation ，意为检索增强生成
+
+通过引入外部知识库检索机制，提升生成内容的准确性、相关性和时效性
+
+## GraphRAG
+知识图谱
+
+比如：获取技术部们去年的成果
+海量数据--> llm --> 知识图谱 --> 社区挖掘 --> 总结汇总
+
+----------------------
+## LLM
+
+### 微调
++ 全量微调：全部指令改动
++ PEFT： 
+	- LoRA：去掉冗余的指令，对精简后的指令微调
+
+大模型输入问题的token会猜测下一个单词，从当前单词中选一个继续推测下一个单词，所以是一点点输出
+
+### 参数
++ top K 假如k=3，取概率最大的前三个token,筛选掉大部分token
++ top P 一个概率的阈值，当选出来的token加起来的概率小于p值可以继续增加token
+----------------------
+
+
 ## 1. 基础
 
 ### 1.1. transfermer（神经网络中的一个分支, 训练模型）
@@ -155,51 +195,6 @@ encoding= tiktoken.encoding_for_modle('gpt-3.5-turbo')
 
 
 
-
-
----------------------------
-
-### RAG 检索增强
-Retrieval Augmented Generation ，意为检索增强生成
-
-通过引入外部知识库检索机制，提升生成内容的准确性、相关性和时效性
-
-### agent
-做决策使用
-可以理解为大模型上开发的各种插件和应用
-
-字节的coze 配置都在云上，无法私有嵌入你的本地，自己玩一玩可以
-autogpt/metagpt/langchain 程序员开发框架
-autogenStudio 微软的开源的适合业务人员不懂代码的构建自己的知识库
-
-
-+ sora 生成视频
-
-
-### GraphRAG
-知识图谱
-
-比如：获取技术部们去年的成果
-海量数据--> llm --> 知识图谱 --> 社区挖掘 --> 总结汇总
-
-
-----------------------
-## LLM
-
-### 微调
-+ 全量微调：全部指令改动
-+ PEFT： 
-	- LoRA：去掉冗余的指令，对精简后的指令微调
-
-大模型输入问题的token会猜测下一个单词，从当前单词中选一个继续推测下一个单词，所以是一点点输出
-
-### 参数
-+ top K 假如k=3，取概率最大的前三个token,筛选掉大部分token
-+ top P 一个概率的阈值，当选出来的token加起来的概率小于p值可以继续增加token
-
-
-----------------------
-
 ## 2. 开发
 ### 2.1. dify
 是一个开源 LLM 应用开发平台。使用 RAG 引擎编排从代理到复杂 AI 工作流的 LLM 应用
@@ -209,20 +204,12 @@ autogenStudio 微软的开源的适合业务人员不懂代码的构建自己的
 
 
 
-
-
-#### 实战
+#### 2.2.1. 实战
 ```python
 # 安装
 pip3 install langchain
 
 ```
-
-文章总结参考资料：
-+ 教程：https://langchain114.com/docs/use_cases/summarization/
-+ 总结讲解：https://juejin.cn/post/7238110426147504184
-+ docs总结例子：https://www.python-engineer.com/posts/langchain-crash-course/
-+ fastapi: https://fastapi.tiangolo.com/zh/tutorial/body/
 
 ### 2.3. ollama
 go开发本地大语言模型运行框架
@@ -234,9 +221,12 @@ go开发本地大语言模型运行框架
 文档类：
 + [高] langchain使用指南，简单 https://www.tizi365.com/topic/2539.html
 + [高] 谷歌收费课件，了解ai+实战代码 https://github.com/DjangoPeng/openai-quickstart
++ [高] fastapi教程 https://fastapi.tiangolo.com/zh/tutorial/body/
+
 
 + [中] 个人开发者笔记，langchian教程，有一些使用例子 + langchain教程 https://liaokong.gitbook.io/llm-kai-fa-jiao-cheng#chain-lian
 + [中] langchain总结 https://langchain114.com/docs/use_cases/summarization/
++ [中] langchain英文教程：https://www.python-engineer.com/posts/langchain-crash-course/
 
 + [低]个人开发者langchain学习笔记 https://juejin.cn/user/3125246096841600/posts
 
@@ -249,10 +239,10 @@ go开发本地大语言模型运行框架
 
 
 视频类：
-+ [高]-[知识普及] ai老兵，简单的话普及ai知识: https://www.bilibili.com/video/BV1tthPeFEWb/?p=3&spm_id_from=pageDriver
++ [高]-[知识普及]-[已学] ai老兵，简单的话普及ai知识: https://www.bilibili.com/video/BV1tthPeFEWb/?p=3&spm_id_from=pageDriver 
 
 + [中]-[实战教程] 迪哥-搬运别人教程，langchain rag https://www.bilibili.com/video/BV1Sb421n7to/?spm_id_from=333.337.search-card.all.click&vd_source=9a6776332c8894a5253390cd88bdf876
-+ [中]-[解释原理] 详细的解释什么是RAG: https://www.bilibili.com/video/BV1Vj421Z7UP/?spm_id_from=pageDriver&vd_source=9a6776332c8894a5253390cd88bdf876
++ [中]-[解释原理]-[未看-低] 详细的解释什么是RAG: https://www.bilibili.com/video/BV1Vj421Z7UP/?spm_id_from=pageDriver&vd_source=9a6776332c8894a5253390cd88bdf876
 
 
 
