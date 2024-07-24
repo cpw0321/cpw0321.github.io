@@ -249,35 +249,14 @@ go开发本地大语言模型运行框架
 
 
 视频类：
-+ [高] ai老兵，简单的话普及ai知识: https://www.bilibili.com/video/BV1tthPeFEWb/?p=3&spm_id_from=pageDriver
++ [高]-[知识普及] ai老兵，简单的话普及ai知识: https://www.bilibili.com/video/BV1tthPeFEWb/?p=3&spm_id_from=pageDriver
 
-
-+ [中]详细的解释什么是RAG: https://www.bilibili.com/video/BV1Vj421Z7UP/?spm_id_from=pageDriver&vd_source=9a6776332c8894a5253390cd88bdf876
-
-
-
++ [中]-[实战教程] 迪哥-搬运别人教程，langchain rag https://www.bilibili.com/video/BV1Sb421n7to/?spm_id_from=333.337.search-card.all.click&vd_source=9a6776332c8894a5253390cd88bdf876
++ [中]-[解释原理] 详细的解释什么是RAG: https://www.bilibili.com/video/BV1Vj421Z7UP/?spm_id_from=pageDriver&vd_source=9a6776332c8894a5253390cd88bdf876
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-需要看的视频教程：
-+ langchain rag https://bilibili.com/video/BV1Cp421R7Y7/?spm_id_from=333.337.search-card.all.click&vd_source=9a6776332c8894a5253390cd88bdf876
-+ 搭建自己的rag https://www.bilibili.com/video/BV1Sb421n7to/?spm_id_from=333.337.search-card.all.click&vd_source=9a6776332c8894a5253390cd88bdf876
-
-+ 博主： https://space.bilibili.com/3537115180698587
-+ RAG简单解释： https://space.bilibili.com/472543316/video
 
 
