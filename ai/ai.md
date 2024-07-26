@@ -214,7 +214,65 @@ pip3 install langchain
 ### 2.3. ollama
 go开发本地大语言模型运行框架
 
+```bash
+# 命令
+ollama run llama3
 
+ollama show
+ollama help
+ollama list
+ollama rm
+
+```
+
+加载指定的模型的配置
+```text
+FROM "/Users/zhigui/Downloads/ggml-model-q2_k.gguf"
+
+TEMPLATE """{{- if .System }}
+<|im_start|>system {{ .System }}<|im_end|>
+{{- end }}
+<|im_start|>user
+{{ .Prompt }}<|im_end|>
+<|im_start|>assistant
+"""
+
+SYSTEM """"""
+
+PARAMETER stop <|im_start|>
+PARAMETER stop <|im_end|>
+```
+
+```bash
+# 创建
+$ ollama create llama3-cn -f ./config.txt
+
+# 运行
+ollama run llama3-cn
+
+
+# 调用
+curl http://localhost:11434/api/generate -d '{
+	"model": "llama3-cn:latest",
+	"prompt": "什么是docker",
+	"stream": true
+}'
+
+```
+
+
+### 2.4. 自己实战微调
++ huggingface上下载别人微调好的模型
++ peft huggingface可调用
++ lora 出来要进行合并
++ 量化 -- llama.cpp
++ 部署 ollama/lmstudio
+
+
+
+
+
+-----------------------
 
 资料：
 
@@ -227,8 +285,10 @@ go开发本地大语言模型运行框架
 + [中] 个人开发者笔记，langchian教程，有一些使用例子 + langchain教程 https://liaokong.gitbook.io/llm-kai-fa-jiao-cheng#chain-lian
 + [中] langchain总结 https://langchain114.com/docs/use_cases/summarization/
 + [中] langchain英文教程：https://www.python-engineer.com/posts/langchain-crash-course/
++ [中]-[51cto博客] 理解llama3整个原理过程 https://www.51cto.com/article/788872.html
 
 + [低]个人开发者langchain学习笔记 https://juejin.cn/user/3125246096841600/posts
++ [低]-[科普类] 讲解数据的重要性 https://www.53ai.com/news/qianyanjishu/1237.html
 
 
 代码类：
