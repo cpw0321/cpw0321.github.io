@@ -9,6 +9,10 @@
 参数：
 6B=60亿
 
+主要能力：
++ 推理
++ 知识量--> 被编码为模型中的权重和参数
+
 
 
 + 微调（Fine-tuning）：
@@ -108,11 +112,12 @@ GPT4 -->
 #### 1.2.3 预训练语言模型三种网络架构
 + Encoders --> BERT
 + Decoders -->GPT
-+ Encoders-Decoders --> T5/BART
++ Encoders-Decoders --> T5/BART  t5是文本到文本
 	都是transfermer模型
 	- GPT 自回归--每个词只能看到左边的词
 	- T5（BART） 自回归+自编码--meta--GPT+BERT结合起来
 	- BERT 自编码--google--每个词能看到左边和右边的词
+	
 
 ![img.png](images/预训练语言模型.png)
 
@@ -225,14 +230,21 @@ encoding= tiktoken.encoding_for_modle('gpt-3.5-turbo')
 
 
 
-#### 2.2.1. 实战
+#### 2.2.1. langchain实战
 ```python
 # 安装
 pip3 install langchain
 
 ```
 
++ langchain 官方文档 https://python.langchain.com/v0.2/docs/integrations/retrievers/
+
+
 ### 2.3. ollama
+
++ xinference 与ollama类似
+
+
 go开发本地大语言模型运行框架
 
 ```bash
@@ -298,6 +310,7 @@ curl http://localhost:11434/api/generate -d '{
 资料：
 
 文档类：
++ [高] 模型评测排行榜 https://cevalbenchmark.com/index_zh.html#home_zh
 + [高] langchain使用指南，简单 https://www.tizi365.com/topic/2539.html
 + [高] 谷歌收费课件，了解ai+实战代码 https://github.com/DjangoPeng/openai-quickstart
 + [高] fastapi教程 https://fastapi.tiangolo.com/zh/tutorial/body/
@@ -321,11 +334,16 @@ curl http://localhost:11434/api/generate -d '{
 
 视频类：
 + [高]-[知识普及]-[已学] ai老兵，简单的话普及ai知识: https://www.bilibili.com/video/BV1tthPeFEWb/?p=3&spm_id_from=pageDriver 
++ [高]-[代码实战博主] 讲解一些实战，效率高 https://www.bilibili.com/video/BV11Z42127zx/?spm_id_from=pageDriver&vd_source=9a6776332c8894a5253390cd88bdf876
+
 
 + [中]-[实战教程] 迪哥-搬运别人教程，langchain rag https://www.bilibili.com/video/BV1Sb421n7to/?spm_id_from=333.337.search-card.all.click&vd_source=9a6776332c8894a5253390cd88bdf876
 + [中]-[解释原理]-[未看-低] 详细的解释什么是RAG: https://www.bilibili.com/video/BV1Vj421Z7UP/?spm_id_from=pageDriver&vd_source=9a6776332c8894a5253390cd88bdf876
 
 
+
+待看：
+大模型介绍：https://www.bilibili.com/video/BV1AU421o7ob/?spm_id_from=333.337.search-card.all.click&vd_source=9a6776332c8894a5253390cd88bdf876
 
 
 

@@ -106,6 +106,8 @@ https://www.edrawmind.com/
 
 #### 4.1.3、draw.io画图
 
+vscode中写doc.dio可以直接进行画图使用
+
 
 
 ### 4.2、生成在线书
@@ -133,3 +135,9 @@ readthedocs.org/
 ## 7.0 查看自己的公网ip
 + curl ifconfig.me
 + curl ipinfo.io/ip
+
+
+## 8 内网穿透工具
++ ngrok
+
+
