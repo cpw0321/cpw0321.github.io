@@ -365,11 +365,39 @@ uber团队实现的开源的分布式追踪系统，基于openTracing标准
 + tokei 统计代码
 
 
+## 库
++ tonic 用于处理protobuf定义并生成Rust代码
+
+```toml
+[dependencies]
+tonic = { version = "0.6", features = ["with-bytes"] }  // 使用最新版本
+tonic-build = "0.6"  // 使用最新版本
+
+确保 build.rs 文件在构建项目时运行
+[build-dependencies]
+tonic-build = "0.6"  // 使用最新版本
+```
+
+```rust
+// build.rs
+fn main() {
+    tonic_build::configure()
+        .out_dir("src/proto")
+        .compile(&["protos/my_service.proto"], &["protos/"])
+        .expect("Failed to compile protos");
+}
+```
+
+
+
 ## 5 资料
 ### 5.1 书
 + https://course.rs/  
 + https://kaisery.github.io/trpl-zh-cn/ch06-03-if-let.html
 
+
+好的代码仓库
+一个机器学习的博主，rust实战 https://github.com/mazi233/hello-tf
 
 
 
