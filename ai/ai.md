@@ -54,6 +54,8 @@ Retrieval Augmented Generation ，意为检索增强生成
 ## Reranker
 参考视频：https://www.bilibili.com/video/BV1Fs421T7Xm/?spm_id_from=333.337.search-card.all.click&vd_source=9a6776332c8894a5253390cd88bdf876
 
+[高]-代码：https://github.com/blackinkkkxi/RAG_langchain
+
 用于rag检索后在分类
 
 + 使用Cross-Encoder
