@@ -17,6 +17,33 @@ mac下第三方包安装路径：
 python3.10 -m venv .venv
 ```
 
+
+## PyTorch学习
+视频：https://www.bilibili.com/video/BV1RZ421T739?p=8&spm_id_from=pageDriver&vd_source=9a6776332c8894a5253390cd88bdf876
++ tensor 张量
++ 变量
++ nn-modle
+
+## 1.1 Tensor
+张量可以理解为，0维，1维，二维，n维向量数组
+
+机器学习：
+样本+模型 ==》 Y = WX + b  w和b即变量（参数）
+
++ 类型
+	- 和编程的数据类型一样 
++ 创建
+	- a = torch.Tensor([[1, 2], [3, 4]])
+	  print(a)
+	  print(a.type())
++ 属性
++ 运算
+	- 加减乘除之类
+	- in-place 就地操作，不允许使用临时变量
+	- 广播机制 张量参数自动扩展为相同大小
++ 操作
++ numpy相互转化
+
 ## 库
 + tensorflow  google的机器学习框架
 + PyTorch facebook的机器学习框架
