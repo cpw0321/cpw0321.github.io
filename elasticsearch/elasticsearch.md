@@ -142,7 +142,8 @@ es--->mysql
 增删查改
 
 + put 修改， 更推荐使用 post _update区别，只更新某个字段， put某个字段不写会为空
-+ get 查询  /test/user/_search?q=name:张三  
++ get 查询  /test/user/_ search?q=name:张三  
+
 
 ### 4、条件查询
 
@@ -262,3 +263,7 @@ keyword类型的不会被分词器解析
 
 ### 2、mysql同部署数据到es
 github.com/withlin/canal-go
+
+
+## 参考
++ 命令汇总：https://zhuanlan.zhihu.com/p/651152005
