@@ -55,3 +55,15 @@ python3.10 -m venv .venv
 + streamlit 可以使用python库写一些前端界面
 
 
+## 虚拟环境
+### 1. conda
+
+创建虚拟环境
+conda create --name myenv python=3.8
+
+使用当前环境
+conda activate myenv
+
+退出当前环境
+conda deactivate
+

@@ -2,6 +2,12 @@
 
 参考：https://www.bilibili.com/read/cv33455530/
 
++ 字节：https://www.kancloud.cn/leonshi/programming/2577007
++ 面试知识点：https://zhuanlan.zhihu.com/p/690378516
+
+
++ 面试有答案 https://blog.csdn.net/IT_ziliang/article/details/123493273
+
 ## 基础
 
 ### 1. slice切片底层
@@ -142,9 +148,109 @@ go所有的都是值传递，都是一个拷贝，副本
 	- 增加gc压力
 	- 内存碎片化
 
+
+### 12. csp并发模型
++ 传统为共享内存来通信
++ csp 以通信方式来共享内存  channel
+
+
+并发模型有三种
++ 通过channel
+	- 核心思想：不要通过共享内存来通信，而是通过通信来共享内存
++ sync中waitgroup
++ context
+
+
+### 13. 锁
++ 互斥锁
++ 读写锁
++ 死锁
+	- 自己已经上锁了，然后又调用了锁
+
+### 14. epoll
+一种io多路复用技术
+
+调用
++ epoll_create
++ epoll_ctl
++ epoll_wait
+
+
+epoll比select/poll优点：
++ select需要将用户态的socket拷贝到内核态，很低效
++ epoll监听了一个socket list，有数据也是少量的准备就绪句柄，是少量的copy
+
+
+## 分布式
+### 1. 分布式锁
++ 基于数据库
+	- 创建表，某个字段创建唯一索引，成功插入获取锁，执行完成删除数据释放锁
++ 基于redis缓存
+	- set lock expireTime
+	- del lock
++ 基于zk
+	- 文件目录树，同一个目录下只能有唯一个文件
+	- 创建目录mylock，获取目录下的所有节点，判断是不是最小节点
++ 基于etcd
+	- raft算法保持强一致性，key-value
+
+	- 保持独占， 提供一个api，只有一个节点穿件可以成功
+	- 控制时序，所有用户都会安排，有一个执行顺序，通过api创建，同时会列出当前目录下的键值
+
 ## 网络
+### 1. http
++ http1
+	- 持久连接
+	- 请求管道化
+	- 增加缓存处理 cache-control
+	- 增加host,支持断点传输
++ http2
+	- 二进制分帧
+	- 多路复用
+	- 头部压缩
+	- 服务器推送
+
+### 2. tcp/udp
++ tcp
+	- 面向连接
+	- 流式协议，无大小限制
+	- 可靠
+
++ udp
+	- 面向无连接
+	- 数据包协议，有大小限制
+	- 不可靠
 
 ## 数据库
+### 1. redis
+#### 1.1 基本数据类型
++ string
 
++ hash
+
+
++ list
+
+
++ set
+
++ sorted set
+
+#### 1.2 缓存
++ 穿透--redis为空，db为空
+	- 缓存空的对象
+	- 布隆过滤器
+
++ 击穿--redis 某个热点失效
+	- 互斥锁
+	- 热点数据永不失效
+
++ 血崩--redis大量数据同时过期
+	- 缓存数据设置随机时间
+	- 缓存预加载
 
 ## 算法
+
+
+## 资料
++ 面试题 https://blog.csdn.net/Bel_Ami_n/article/details/123352478

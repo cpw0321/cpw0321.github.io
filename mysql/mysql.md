@@ -139,6 +139,12 @@ Id 1 3 5 缺少2 4 6间隙，间隙锁一般发生在范围查找中
 ![img.png](images/img08.png)
 
 
+## 问题
+
++ mysql上安装报初始密码不可用
+
+解决：https://blog.csdn.net/themagickeyjianan/article/details/85255396
+
 
 # 资料
 + 客户端工具：dbeaver
