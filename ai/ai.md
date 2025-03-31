@@ -1,5 +1,7 @@
 # ai
 
++ 大模型技术图谱：https://gitee.com/oschina/llm-map
+
 ## 术语解释
 + 大模型（Large Models）：
 
