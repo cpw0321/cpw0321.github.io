@@ -141,3 +141,19 @@ readthedocs.org/
 + ngrok
 
 
+## 常用命令
+1. 统计代码
++ gocloc
+```bash
+go install github.com/hhatto/gocloc/cmd/gocloc@latest
+
+gocloc .
+``` 
+
++ tokei统计
+
+
+## 发邮件
++ resend.com
+
+

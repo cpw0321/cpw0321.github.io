@@ -219,7 +219,37 @@ svc类型
 + Affinity 亲和力
 
 
+源码结构：
+重点阅读 pkg/scheduler, pkg/controller, pkg/api 等目录
+理解 Informer、WorkQueue 机制
 
+# 扩展开发：
++ 编写 Custom Controller(自定义控制器器)/Operator(操作员)（client-go 库）
+
++ 开发 Admission Webhook --质检员
+
++ 调度器开发
+研究 kube-scheduler 调度算法
+编写自定义调度器（Scheduler Framework）
+
++ 网络开发
+CNI 插件开发（Calico/Cilium 源码）--网络工程师
+  - calico 直达快递，传统邮局
+  - cilium 中转物流，智能物流
+Service Mesh 数据平面（Envoy）--微服务之间的通信管家
+  - 控制平面 Istio/Linkerd 统一指挥中心
+  - 数据平面 envoy 快递小哥
+
++ 存储开发
+CSI 驱动开发（如 Rook）
+分布式存储系统（Ceph/etcd）
+
++ 安全方向
+OPA（Open Policy Agent）
+安全容器（gVisor/Kata Containers） --安全隔离
+  - docker --合租公寓
+  - gvisor --智能管家监控
+  - Kata Containers  --独栋别墅  k8s的哥哥方向进行补充和完善
 
 ---
 ## 问答

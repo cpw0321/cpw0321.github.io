@@ -31,3 +31,7 @@ source myenv/bin/activate
 # 停用
 deactivate
 ```
+
+sirocnords575@gmail.com
+Kt69Qh88
+Kt69Qh88

@@ -1,3 +1,31 @@
+## 二层
++ Optimistic Rollup 
+    - Optimism
+    - Arbitrum
+  采用“乐观”假设，默认交易有效，除非有人提交欺诈证明挑战。依赖经济激励（质押惩罚）来防止作恶
++ ZK Rollup 
+    - zkSync
+    - StarkNet
+    - Scroll
+  基于密码学证明（零知识证明），交易有效性由数学保证，无需信任任何参与者
+
+
+# 交易撮合系统的各项核心模块（如订单匹配、撮合算法、订单簿管理等）进行性能调优和架构优化
+动性池算法‌：研究AMM（自动做市商）模型，优化滑点控制和流动性激励策略‌
+
+## uniswap
+
++ V2 的恒定乘积模型 (CPMM)
+  x * y = k 
++ ‌V3 的集中流动性模型
+  给定一个价格区间，不会无穷大或者无穷小
+
+## Polkadot 异构多链
++ 中继链（Relay Chain）
++ 平行链（Parachain）
++ 转接桥（Bridge）
+
+
 # roullup
 + Optimistic Rollup 
     - Optimism

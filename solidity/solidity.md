@@ -269,3 +269,69 @@ cast call <multicall3_address> "getChainId()" --rpc-url <your_rpc_url>
   transfer gas是固定的消耗完可能失败
 
 
+
+
+## 工厂合约
+
+## call与delegatecall
+
+## uups
+
+## mpc
++ 库 (需验证)
+  "github.com/lsils/gmpc"
+	"github.com/hashicorp/vault/shamir"
+
+## 跨链
++ 中心化
+  btc-eth 都是利用批处理来提高速度
+  mpc --私钥分片和门限来提交安全性
+
++ 分片技术--待学习
+  - ‌哈希取模‌：对用户地址哈希值取模，确定归属分片（如hash(user_address) % 8将用户分配至8个分片之一）‌
+
+## bybit攻击原理
+
+delegatecall
+通过 SSTORE 指令将 Safe 合约的 Slot 0（存储实现合约地址的槽位）替换为攻击者控制的地址
+```solidity
+// 恶意合约示例  
+contract Malicious {  
+    function hijack() external {  
+        // 修改 Slot 0 的存储值  
+        assembly {  
+            sstore(0, 0xAttackContractAddress)  
+        }  
+    }  
+}  
+```
+如何避免
++ 对多签交易进行校验
+
+## poh
+
+pos\pow 节点之间需要同步时间，单个节点是基于本地生成交易时间戳的
+
+poh 用的全局时钟  交易顺序为 前一个交易hash+ timestamp 生成hash, 一条连续的hash来保证交易的顺序性
+
+## pump.fun
+ Meme 币发行的工具
+
+## 加密
+
++ Schnorr 签名算法 是一种基于离散对数难题的 ‌数字签名与零知识证明协议
+  在不泄露私钥的前提下，证明持有者拥有私钥
+
++ rsa 加密算法
++ ecc 椭圆加密算法
+  - Ed25519 签名算法  ---EdDSA‌
+  - secp256k1 加密算法 ---ECDSA‌
+
++ 加密 数据传输加密
++ 签名 身份认证
+
+
+## 钱包相关
++ bip32 根据一个随机数种子可以生成一个主私钥+多个子私钥
++ bip44 路径用于确定私钥 m / purpose' / coin' / account' / change / address_index
++ bip39 助记词  12/24个单词  帮我总结上面区块链的知识点，不对的帮我完善和说明其原因
