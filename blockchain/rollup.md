@@ -127,4 +127,83 @@
 
 **zkEVM 是未来，但 Optimistic Rollup 仍是当前最实用的选择。**
 
+---
+
+# 交易撮合系统的各项核心模块（如订单匹配、撮合算法、订单簿管理等）进行性能调优和架构优化
+动性池算法‌：研究AMM（自动做市商）模型，优化滑点控制和流动性激励策略‌
+
+## uniswap
+
++ V2 的恒定乘积模型 (CPMM)
+  x * y = k 
++ ‌V3 的集中流动性模型
+  给定一个价格区间，不会无穷大或者无穷小
+
+## Polkadot 异构多链
++ 中继链（Relay Chain）
++ 平行链（Parachain）
++ 转接桥（Bridge）
+
+
+## 工厂合约
+
+## call与delegatecall
+
+## uups
+
+## mpc
++ 库 (需验证)
+  "github.com/lsils/gmpc"
+    "github.com/hashicorp/vault/shamir"
+
+## 跨链
++ 中心化
+  btc-eth 都是利用批处理来提高速度
+  mpc --私钥分片和门限来提交安全性
+
++ 分片技术--待学习
+  - ‌哈希取模‌：对用户地址哈希值取模，确定归属分片（如hash(user_address) % 8将用户分配至8个分片之一）‌
+
+## bybit攻击原理
+
+delegatecall
+通过 SSTORE 指令将 Safe 合约的 Slot 0（存储实现合约地址的槽位）替换为攻击者控制的地址
+```solidity
+// 恶意合约示例  
+contract Malicious {  
+    function hijack() external {  
+        // 修改 Slot 0 的存储值  
+        assembly {  
+            sstore(0, 0xAttackContractAddress)  
+        }  
+    }  
+}  
+```
+如何避免
++ 对多签交易进行校验
+
+
+## 加密
+
++ Schnorr 签名算法 是一种基于离散对数难题的 ‌数字签名与零知识证明协议
+  在不泄露私钥的前提下，证明持有者拥有私钥
+
++ rsa 加密算法
++ ecc 椭圆加密算法
+  - Ed25519 签名算法  ---EdDSA‌
+  - secp256k1 加密算法 ---ECDSA‌
+
++ 加密 数据传输加密
++ 签名 身份认证
+
+## 钱包相关
++ bip32 根据一个随机数种子可以生成一个主私钥+多个子私钥
++ bip44 路径用于确定私钥 m / purpose' / coin' / account' / change / address_index
++ bip39 助记词  12/24个单词
+
+## solana
+1sol = 10^9 lamports
+1eth = 10^18 wei
+1gwei = 10^9 wei
+1btc = 10^8 satoshi
 
